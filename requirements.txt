@@ -11,6 +11,7 @@ bitcoinlib==0.6.2
 certifi==2021.10.8
 cffi==1.15.0
 charset-normalizer==2.0.7
+coinbase==0.3.0
 coincurve==15.0.1
 cytoolz==0.11.2
 eth-abi==2.1.1
@@ -22,6 +23,7 @@ eth-rlp==0.2.1
 eth-typing==2.2.2
 eth-utils==1.10.0
 fastecdsa==2.2.1
+firebase==3.0.1
 frozenlist==1.2.0
 greenlet==1.1.2
 hexbytes==0.2.2
