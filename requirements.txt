@@ -13,8 +13,8 @@ cachetools==4.2.4
 certifi==2021.10.8
 cffi==1.15.0
 charset-normalizer==2.0.7
-coinbase==0.3.0
-coincurve==15.0.1
+coinbase==2.0.0
+coincurve
 cryptography==35.0.0
 cytoolz==0.11.2
 Deprecated==1.2.13
