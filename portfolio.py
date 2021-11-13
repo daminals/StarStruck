@@ -23,4 +23,4 @@ class Portfolio:
         plt.ylabel('USD $')
         plt.xticks(rotation=90)
         plt.tight_layout()
-        plt.savefig('portfolio.jpg')
+        plt.savefig('static/portfolio.jpg')
