@@ -21,6 +21,7 @@ from firebase_admin import db
 #classes
 from portfolio import Portfolio
 from coinbaseacc import CoinbaseAccount
+from astroalgo import AstrologyAlgorithm
 
 cred = credentials.Certificate("ssfbkey.json") #firebase key
 
@@ -50,10 +51,6 @@ portfoliofb = ref.child('portfolio')
 
 # information
 cb = Client(CB_APIKey, CB_APISecret)
-
-
-class AstrologyAlgorithm:
-    pass
 
 cb_acc = CoinbaseAccount(cb, portfoliofb)
 pf = Portfolio(portfoliofb)
