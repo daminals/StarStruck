@@ -42,7 +42,7 @@ def balance(accounts):
     message = []
     for wallet in accounts.data:
         value = str( wallet['native_balance']).replace('USD','')
-        if value != 0:
+        if float(value) != float(0):
             message.append( str(wallet['name']) + ' ' +   str(wallet['native_balance']) )
         total += float(value)
     message.append( 'Total Balance: ' + 'USD ' + str(total) )
