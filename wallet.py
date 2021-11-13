@@ -1,4 +1,7 @@
 # wallet.py
+# Daniel Kogan
+# Nov 11 2021
+
 from dotenv import load_dotenv
 import os, coinbase, json
 #matplotlib
@@ -15,6 +18,9 @@ from firebase import firebase
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
+#classes
+from portfolio import Portfolio
+from coinbaseacc import CoinbaseAccount
 
 cred = credentials.Certificate("ssfbkey.json") #firebase key
 
@@ -44,44 +50,12 @@ portfoliofb = ref.child('portfolio')
 
 # information
 cb = Client(CB_APIKey, CB_APISecret)
-class CoinbaseAccount:
-    def __init__(self, client):
-        self.cb = client
-        self.user = cb.get_current_user()
-        self.accounts = cb.get_accounts()
-    
-    def balance(self):
-        total = 0
-        message = []
-        for wallet in self.accounts.data:
-            value = str( wallet['native_balance']).replace('USD','')
-            if float(value) != float(0):
-                message.append( str(wallet['name']) + ' ' +   str(wallet['native_balance']) )
-            total += float(value)
-        message.append( 'Total Balance: ' + 'USD ' + str(total) )
-        now = dt.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
-        print(now)
-        portfoliofb.update({now: total})
-        return('\n'.join( message ))
 
-class Portfolio:
-    def __init__(self, portfoliofb):
-        self.data = portfoliofb.get()
-    
-    def plot(self):
-        xAxis = [key for key, value in self.data.items()]
-        yAxis = [value for key, value in self.data.items()]
-        plt.grid(False)
-        
-        plt.plot(xAxis,yAxis, color='maroon')
-        plt.xlabel('Time')
-        plt.ylabel('USD $')
-        plt.xticks(rotation=90)
-        plt.tight_layout()
-        plt.savefig('portfolio.jpg')
-        #print(self.data)
 
-cb_acc = CoinbaseAccount(cb)
+class AstrologyAlgorithm:
+    pass
+
+cb_acc = CoinbaseAccount(cb, portfoliofb)
 pf = Portfolio(portfoliofb)
 
 print(cb_acc.balance())
