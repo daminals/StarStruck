@@ -1,0 +1,26 @@
+.sidenav {
+  height: 110%;
+  width: 160px;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #909090;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #414141;
+  display: block;
+}
+
+.main {
+  margin-right: 160px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+  text-align: center;
+}
+

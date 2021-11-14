@@ -55,5 +55,9 @@ cb = Client(CB_APIKey, CB_APISecret)
 cb_acc = CoinbaseAccount(cb, portfoliofb)
 pf = Portfolio(portfoliofb)
 
-print(cb_acc.balance())
-pf.plot()
+def main():
+    print(cb_acc.balance())
+    pf.plot()
+
+if __name__ == '__main__':
+    main()
