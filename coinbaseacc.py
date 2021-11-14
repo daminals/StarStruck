@@ -29,6 +29,9 @@ class CoinbaseAccount:
         self.portfoliofb.update({now: total})
         return('\n'.join( message ))
     
+    def listize(bal):
+        pass
+    
     def current_price(self, coin):
         pass
     

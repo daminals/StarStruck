@@ -13,14 +13,18 @@ class Portfolio:
     def __init__(self, portfoliofb):
         self.data = portfoliofb.get()
     
-    def plot(self):
-        xAxis = [key for key, value in self.data.items()]
-        yAxis = [value for key, value in self.data.items()]
-        plt.grid(False)
+    def plotpf(self):
+        self.plot(self.data,"Time","USD $", 'static/portfolio.jpg')
         
+    def plot(self, data, xlabel, ylabel, figname):
+        xAxis = [key for key, value in data.items()]
+        yAxis = [value for key, value in data.items()]
+        plt.grid(False)
         plt.plot(xAxis,yAxis, color='maroon')
-        plt.xlabel('Time')
-        plt.ylabel('USD $')
+        plt.xlabel(xlabel)
+        plt.ylabel(ylabel)
         plt.xticks(rotation=90)
+        ax = plt.gca()
+        ax.axes.xaxis.set_ticks([])
         plt.tight_layout()
-        plt.savefig('static/portfolio.jpg')
+        plt.savefig(figname)

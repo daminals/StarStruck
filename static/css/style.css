@@ -5,7 +5,7 @@
   z-index: 1;
   top: 0;
   right: 0;
-  background-color: #909090;
+  background-color: #999999;
   overflow-x: hidden;
   padding-top: 20px;
 }
@@ -13,9 +13,13 @@
 .sidenav a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 10px;
   color: #414141;
   display: block;
+}
+
+hr {
+  border:0.5px solid #313131;
 }
 
 .main {
@@ -24,3 +28,7 @@
   text-align: center;
 }
 
+.starstruck {
+  text-align:center;
+  padding-right: 7%;
+}

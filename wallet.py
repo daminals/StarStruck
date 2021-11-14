@@ -57,7 +57,7 @@ pf = Portfolio(portfoliofb)
 
 def main():
     print(cb_acc.balance())
-    pf.plot()
+    pf.plotpf()
 
 if __name__ == '__main__':
     main()
