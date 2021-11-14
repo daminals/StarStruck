@@ -14,7 +14,7 @@ class Portfolio:
         self.data = portfoliofb.get()
     
     def plotpf(self):
-        self.plot(self.data,"Time","USD $", 'static/portfolio.jpg')
+        self.plot(self.data,"Time","USD $", 'static/portfolio.png')
         
     def plot(self, data, xlabel, ylabel, figname):
         xAxis = [key for key, value in data.items()]
@@ -27,4 +27,4 @@ class Portfolio:
         ax = plt.gca()
         ax.axes.xaxis.set_ticks([])
         plt.tight_layout()
-        plt.savefig(figname)
+        plt.savefig(figname, transparent=True)

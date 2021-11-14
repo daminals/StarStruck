@@ -19,11 +19,11 @@ class CoinbaseAccount:
         total = 0
         message = []
         for wallet in self.accounts.data:
-            value = str( wallet['native_balance']).replace('USD','')
+            value = str(wallet['native_balance']).replace('USD','')
             if float(value) != float(0):
-                message.append( str(wallet['name']) + ' ' +   str(wallet['native_balance']) )
+                message.append(str(wallet['name']) + ': ' +   str(wallet['native_balance']).replace('USD ','$') )
             total += float(value)
-        message.append( 'Total Balance: ' + 'USD ' + str(total) )
+        message.append( 'Total Balance: ' + '$' + str(total) )
         now = dt.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
         print(now)
         self.portfoliofb.update({now: total})
