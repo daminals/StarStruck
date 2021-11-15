@@ -18,7 +18,9 @@ class CoinbaseAccount:
         self.cb = client
         self.portfoliofb = database.child('portfolio')
         self.p_crypto = database.child('crypto')
-        self.priceAPI = CoinbasePriceAPI(self.cb) # use custom API wrapper
+        self.user = self.cb.get_current_user()
+        self.accounts = self.cb.get_accounts()
+        self.priceAPI = CoinbasePriceAPI(self.cb) # use custom API
         
     def graph_now(self):
         now = dt.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
