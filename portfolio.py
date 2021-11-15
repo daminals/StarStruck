@@ -24,8 +24,7 @@ class Portfolio:
         
     def plotCoin(self, coin):
         POT = self.crypto.child(f'{coin}/POT').get() # price over time
-        print(POT)
-        #self.plot(POT, "Time", "{coin} in $", f"{coin}.png")
+        self.plot(POT, "Time", "{coin} in $", f"static/{coin}.png")
         
         
     def plot(self, data, xlabel, ylabel, figname):
