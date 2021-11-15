@@ -20,7 +20,7 @@ class Portfolio:
     
     def plotpf(self):
         portfolio_get = self.portfoliofb.get()
-        self.plot(portfolio_get,"Time","USD $", 'static/portfolio.png')
+        self.plot(portfolio_get,"Time","USD $", 'static/Portfolio.png')
         
     def plotCoin(self, coin):
         POT = self.crypto.child(f'{coin}/POT').get() # price over time

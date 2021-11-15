@@ -35,9 +35,19 @@ hr {
   margin-right: 160px; /* Same as the width of the sidenav */
   padding: 0px 10px;
   text-align: center;
+  position: relative;
 }
 
 .starstruck {
   text-align:center;
   padding-right: 15%;
+}
+
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 10px;
+  padding-right:8px;
+  padding-top: 3px
 }

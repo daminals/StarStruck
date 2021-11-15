@@ -18,7 +18,7 @@ def main():
         pf.plotpf()
     bal = str.splitlines(cb_acc.balance())
     # instead of this, will eventually turn into a split list
-    return render_template('main.html', bal=bal, imgsrc="static/portfolio.png")
+    return render_template('main.html', bal=bal, imgsrc="static/Portfolio.png")
 
 # crypto pages
 @app.route('/btc', methods=["GET", "POST"])

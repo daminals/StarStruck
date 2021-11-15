@@ -33,7 +33,7 @@ class CoinbaseAccount:
             value = str(wallet['native_balance']).replace('USD','')
             if float(value) != float(0):
                 message.append(str(wallet['name']) + ': ' +   str(wallet['native_balance']).replace('USD ','$') )
-            total += float(value)
+            total += round(float(value),2)
         message.append( 'Total Balance: ' + '$' + str(total) )
         now = self.graph_now()
         print(now)
