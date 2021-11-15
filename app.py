@@ -10,14 +10,13 @@ from wallet import *
 
 app = Flask(__name__)
 
-@app.route('/cash')
+@app.route('/cash') # not tracking USD to USD bc $1 will always = $1
 @app.route('/', methods=["GET", "POST"])
 def main():
     if request.method == "POST":
-        print(cb_acc.balance())
-        pf.plotpf()
+        print(cb_acc.balance()) # update balance
+        pf.plotpf() # update graph
     bal = str.splitlines(cb_acc.balance())
-    # instead of this, will eventually turn into a split list
     return render_template('main.html', bal=bal, imgsrc="static/graph/Portfolio.png")
 
 # crypto pages
