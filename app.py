@@ -18,7 +18,7 @@ def main():
         pf.plotpf()
     bal = str.splitlines(cb_acc.balance())
     # instead of this, will eventually turn into a split list
-    return render_template('main.html', bal=bal, imgsrc="static/Portfolio.png")
+    return render_template('main.html', bal=bal, imgsrc="static/graph/Portfolio.png")
 
 # crypto pages
 @app.route('/btc', methods=["GET", "POST"])
@@ -29,7 +29,7 @@ def btc():
         cb_acc.current_price(coin)
         pf.plotCoin(coin)
     bal = str.splitlines(cb_acc.balance())        
-    return render_template('main.html', bal=bal, imgsrc=f"static/{coin}.png")
+    return render_template('main.html', bal=bal, imgsrc=f"static/graph/{coin}.png")
 
 @app.route('/ltc', methods=["GET", "POST"])
 def ltc():
@@ -40,7 +40,7 @@ def ltc():
         pf.plotCoin(coin)
     bal = str.splitlines(cb_acc.balance())
     print(bal)   
-    return render_template('main.html', bal=bal, imgsrc=f"static/{coin}.png")
+    return render_template('main.html', bal=bal, imgsrc=f"static/graph/{coin}.png")
 
 @app.route('/doge', methods=["GET", "POST"])
 def doge():
@@ -50,7 +50,7 @@ def doge():
         cb_acc.current_price(coin)
         pf.plotCoin(coin)
     bal = str.splitlines(cb_acc.balance())        
-    return render_template('main.html', bal=bal, imgsrc=f"static/{coin}.png")
+    return render_template('main.html', bal=bal, imgsrc=f"static/graph/{coin}.png")
 
 @app.route('/eth', methods=["GET", "POST"])
 def eth():
@@ -60,7 +60,7 @@ def eth():
         cb_acc.current_price(coin)
         pf.plotCoin(coin)
     bal = str.splitlines(cb_acc.balance())        
-    return render_template('main.html', bal=bal, imgsrc=f"static/{coin}.png")
+    return render_template('main.html', bal=bal, imgsrc=f"static/graph/{coin}.png")
 
 
 
