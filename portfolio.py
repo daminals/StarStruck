@@ -39,3 +39,4 @@ class Portfolio:
         ax.axes.xaxis.set_ticks([])
         plt.tight_layout()
         plt.savefig(figname, transparent=True)
+        plt.close()

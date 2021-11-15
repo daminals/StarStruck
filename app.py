@@ -24,6 +24,7 @@ def btc():
     coin = "BTC"
     if request.method == "POST":
         print(cb_acc.balance())
+        cb_acc.current_price(coin)
         pf.plotCoin(coin)
     bal = str.splitlines(cb_acc.balance())        
     ltc,eth,doge,btc,total = bal # instead of this, will eventually turn into a split list
@@ -34,6 +35,7 @@ def ltc():
     coin = "LTC"
     if request.method == "POST":
         print(cb_acc.balance())
+        cb_acc.current_price(coin)
         pf.plotCoin(coin)
     bal = str.splitlines(cb_acc.balance())        
     ltc,eth,doge,btc,total = bal # instead of this, will eventually turn into a split list
@@ -44,16 +46,18 @@ def doge():
     coin = "DOGE"
     if request.method == "POST":
         print(cb_acc.balance())
+        cb_acc.current_price(coin)
         pf.plotCoin(coin)
     bal = str.splitlines(cb_acc.balance())        
     ltc,eth,doge,btc,total = bal # instead of this, will eventually turn into a split list
     return render_template('main.html', btc=btc,doge=doge,eth=eth,ltc=ltc,total=total, imgsrc=f"static/{coin}.png")
 
 @app.route('/eth', methods=["GET", "POST"])
-def doge():
+def eth():
     coin = "ETH"
     if request.method == "POST":
         print(cb_acc.balance())
+        cb_acc.current_price(coin)
         pf.plotCoin(coin)
     bal = str.splitlines(cb_acc.balance())        
     ltc,eth,doge,btc,total = bal # instead of this, will eventually turn into a split list

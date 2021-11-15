@@ -50,8 +50,8 @@ class CoinbaseAccount:
         now = self.graph_now()
         coin_fb.update({now: price})
     
-    def buy(self, coin):
-        pass
+    def buy(self, coin=None):
+        payment_methods = self.cb.get_payment_methods()
     
     def sell(self, coin):
         pass
