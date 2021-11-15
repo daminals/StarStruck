@@ -1,5 +1,6 @@
 # StarStruck🚀
-> :warning: **PROJECT MAY BE DISCONTINUED** cannot sell crypto because of insanely high fees, project may need to be scrapped
+> :warning: **PROJECT MAY BE DISCONTINUED** :warning:
+> cannot sell crypto because of insanely high fees, project may need to be scrapped
 A Crypto Wallet with an Astrology-Based Investment Algorithm 
 
 <div align="center">
