@@ -12,14 +12,20 @@ import numpy as np
 import time
 
 class Portfolio:
-    def __init__(self, portfoliofb):
-        self.data = portfoliofb.get()
+    def __init__(self, data):
+        portfoliofb = data.child('portfolio')
+        crypto = data.child('crypto')
+        self.portfoliofb = portfoliofb
+        self.crypto = crypto
     
     def plotpf(self):
-        self.plot(self.data,"Time","USD $", 'static/portfolio.png')
+        portfolio_get = self.portfoliofb.get()
+        self.plot(portfolio_get,"Time","USD $", 'static/portfolio.png')
         
     def plotCoin(self, coin):
-        pass
+        POT = self.crypto.child(f'{coin}/POT').get() # price over time
+        print(POT)
+        #self.plot(POT, "Time", "{coin} in $", f"{coin}.png")
         
         
     def plot(self, data, xlabel, ylabel, figname):
