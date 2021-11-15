@@ -11,15 +11,20 @@ body {
   right: 0;
   background-color: #DEDEDE;
   overflow-x: hidden;
-  padding-top: 20px;
+  padding: 20px 8px 0px 16px;
 }
-
 .sidenav a {
-  padding: 6px 8px 6px 16px;
+  padding-bottom: 6px;
   text-decoration: none;
   font-size: 10px;
   color: #414141;
   display: block;
+}
+
+.sidenav input {
+  height: 20px;
+  padding: 0px 5px 0px 5px;
+  font-size: 10px;
 }
 
 hr {

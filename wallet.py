@@ -52,12 +52,16 @@ portfoliofb = ref.child('portfolio')
 # information
 cb = Client(CB_APIKey, CB_APISecret)
 
-cb_acc = CoinbaseAccount(cb, portfoliofb)
+cb_acc = CoinbaseAccount(cb, ref)
 pf = Portfolio(portfoliofb)
 
 def main():
-    print(cb_acc.balance())
-    pf.plotpf()
+    #print(cb_acc.balance())
+    #pf.plotpf()
+    #cb_acc.current_price("BTC")
+    pass
+
+
 
 if __name__ == '__main__':
     main()

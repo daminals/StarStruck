@@ -4,6 +4,8 @@
 
 #matplotlib
 import datetime as dt
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import matplotlib.dates as md
 import numpy as np
@@ -15,6 +17,10 @@ class Portfolio:
     
     def plotpf(self):
         self.plot(self.data,"Time","USD $", 'static/portfolio.png')
+        
+    def plotCoin(self, coin):
+        pass
+        
         
     def plot(self, data, xlabel, ylabel, figname):
         xAxis = [key for key, value in data.items()]
