@@ -9,14 +9,16 @@ from flask import Flask
 from wallet import *
 
 app = Flask(__name__)
+
+@app.route('/cash')
 @app.route('/', methods=["GET", "POST"])
 def main():
     if request.method == "POST":
         print(cb_acc.balance())
         pf.plotpf()
     bal = str.splitlines(cb_acc.balance())
-    ltc,eth,doge,usd,btc,total = bal # instead of this, will eventually turn into a split list
-    return render_template('main.html', btc=btc,doge=doge,eth=eth,ltc=ltc,usd=usd,total=total, imgsrc="static/portfolio.png")
+    # instead of this, will eventually turn into a split list
+    return render_template('main.html', bal=bal, imgsrc="static/portfolio.png")
 
 # crypto pages
 @app.route('/btc', methods=["GET", "POST"])
@@ -27,8 +29,7 @@ def btc():
         cb_acc.current_price(coin)
         pf.plotCoin(coin)
     bal = str.splitlines(cb_acc.balance())        
-    ltc,eth,doge,usd,btc,total = bal # instead of this, will eventually turn into a split list
-    return render_template('main.html', btc=btc,doge=doge,eth=eth,ltc=ltc,usd=usd, total=total, imgsrc=f"static/{coin}.png")
+    return render_template('main.html', bal=bal, imgsrc=f"static/{coin}.png")
 
 @app.route('/ltc', methods=["GET", "POST"])
 def ltc():
@@ -39,8 +40,7 @@ def ltc():
         pf.plotCoin(coin)
     bal = str.splitlines(cb_acc.balance())
     print(bal)   
-    ltc,eth,doge,usd,btc,total = bal # instead of this, will eventually turn into a split list
-    return render_template('main.html', btc=btc,doge=doge,eth=eth,ltc=ltc,usd=usd, total=total, imgsrc=f"static/{coin}.png")
+    return render_template('main.html', bal=bal, imgsrc=f"static/{coin}.png")
 
 @app.route('/doge', methods=["GET", "POST"])
 def doge():
@@ -50,8 +50,7 @@ def doge():
         cb_acc.current_price(coin)
         pf.plotCoin(coin)
     bal = str.splitlines(cb_acc.balance())        
-    ltc,eth,doge,usd,btc,total = bal # instead of this, will eventually turn into a split list
-    return render_template('main.html', btc=btc,doge=doge,eth=eth,ltc=ltc,usd=usd, total=total, imgsrc=f"static/{coin}.png")
+    return render_template('main.html', bal=bal, imgsrc=f"static/{coin}.png")
 
 @app.route('/eth', methods=["GET", "POST"])
 def eth():
@@ -61,9 +60,7 @@ def eth():
         cb_acc.current_price(coin)
         pf.plotCoin(coin)
     bal = str.splitlines(cb_acc.balance())        
-    ltc,eth,doge,usd,btc,total = bal # instead of this, will eventually turn into a split list
-    return render_template('main.html', btc=btc,doge=doge,eth=eth,ltc=ltc,usd=usd, total=total, imgsrc=f"static/{coin}.png")
-
+    return render_template('main.html', bal=bal, imgsrc=f"static/{coin}.png")
 
 
 
