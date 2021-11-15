@@ -59,7 +59,9 @@ def main():
     #print(cb_acc.balance())
     #pf.plotpf()
     #cb_acc.current_price("BTC")
-    pf.plotCoin("BTC")
+    #pf.plotCoin("BTC")
+    #cb_acc.sell("BTC",1) # fee was 99 cents bruh
+    pass
 
 
 

@@ -49,12 +49,25 @@ class CoinbaseAccount:
         coin_fb = self.p_crypto.child(f'{coin}/POT')
         now = self.graph_now()
         coin_fb.update({now: price})
+        return price
     
     def buy(self, coin=None):
-        payment_methods = self.cb.get_payment_methods()
+        payment_methods = self.cb.get_payment_methods()[0]
+        account = self.cb.get_primary_account()
+        #print(payment_methods)
     
-    def sell(self, coin):
-        pass
+    def sell(self, coin, amnt):
+        price = float(self.current_price(coin))
+        print(price)
+        amnt = float(amnt)
+        print(amnt)
+        conversion_rate = amnt/price
+        coin_amnt = 1 * conversion_rate
+        print(coin_amnt)
+        payment_method = self.cb.get_payment_methods()[0]
+        account = self.cb.get_primary_account()
+        account.sell(amount=coin_amnt, currency="btc", payment_method=payment_method.id)
+
     
 
 
