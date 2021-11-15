@@ -67,9 +67,8 @@ class CoinbaseAccount:
         print(coin_amnt)
         payment_method = self.cb.get_payment_methods()[0]
         account = self.cb.get_primary_account()
+        raise sellException
         #account.sell(amount=coin_amnt, currency="btc", payment_method=payment_method.id)
-
-    
 
 
 class CoinbasePriceAPI:
@@ -81,5 +80,11 @@ class CoinbasePriceAPI:
         priceR = requests.get(url)
         price = priceR.json()
         return price['data']['amount']
+class Error(Exception):
+    """Base class for other exceptions"""
+    pass
 
-    
+class sellException(Exception):
+    def __init__(self, message="Transaction fees too high"):
+        self.message = message
+        super().__init__(self.message)
