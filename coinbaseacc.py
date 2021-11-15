@@ -56,7 +56,7 @@ class CoinbaseAccount:
         account = self.cb.get_primary_account()
         #print(payment_methods)
     
-    def sell(self, coin, amnt):
+    def sell(self, coin, amnt): # NEVER USE THIS!!!!! FEES TOO HIGH
         price = float(self.current_price(coin))
         print(price)
         amnt = float(amnt)
@@ -66,7 +66,7 @@ class CoinbaseAccount:
         print(coin_amnt)
         payment_method = self.cb.get_payment_methods()[0]
         account = self.cb.get_primary_account()
-        account.sell(amount=coin_amnt, currency="btc", payment_method=payment_method.id)
+        #account.sell(amount=coin_amnt, currency="btc", payment_method=payment_method.id)
 
     
 
