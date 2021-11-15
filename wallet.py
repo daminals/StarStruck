@@ -29,12 +29,6 @@ load_dotenv()
 # crypto
 CB_APIKey = os.environ.get('CB_APIKey', 3)
 CB_APISecret = os.environ.get('CB_APISecret', 3)
-
-btckey = os.environ.get('btckey', 3)
-dogekey = os.environ.get('dogekey', 3)
-ltckey = os.environ.get('ltckey', 3)
-ethkey = os.environ.get('ethkey', 3)
-
 # firebase
 FIREBASE = os.environ.get('FIREBASE', 3)
 FIREBASE_NAME = os.environ.get('FIREBASE_NAME', 3)
