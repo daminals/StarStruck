@@ -4,15 +4,15 @@ $(document).ready(function(){
       var pageURL = $(location).attr("href"); // whole URL of webpage
       var sendURL = readURL(pageURL)
       console.log(sendURL) // check that its the right one lol
-      if (sendURL) {
+      if (sendURL) { // if it is a coin webpage, send it to the coin Post Request reader
         $.post('/coinPostRqs', {"data": sendURL}, function(){
-          setTimeout(function(){
+          setTimeout(function(){ // make sure the graph is updated in the backend before updating it on the frontend
             updatesrc = $('#graph').attr('src');
             console.log("UPDATING GRAPH")
             $("#graph").removeAttr("src").attr("src", updatesrc + `?v=${getRandomInt(0,100)}`);
           }, 500);
         });
-      } else {
+      } else { // if it is the main page, send it to the main page post request reader
         $.post('/', {"data": "portfolio"}, function(){
           setTimeout(function(){
             updatesrc = $('#graph').attr('src');
