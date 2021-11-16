@@ -1,7 +1,8 @@
 $(document).ready(function(){
   $("form").submit(function(event){
       event.preventDefault();
-      $.post("/", "update", function(){
+      var pageURL = $(location).attr("href");
+      $.post(pageURL, "update", function(){
         setTimeout(function(){
           updatesrc = $('#graph').attr('src');
           $("#graph").removeAttr("src").attr("src", updatesrc + `?v=${getRandomInt(0,100)}`);

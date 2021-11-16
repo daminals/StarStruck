@@ -29,6 +29,7 @@ def btc():
     if request.method == "POST":
         print(cb_acc.balance())
         cb_acc.current_price(coin)
+        os.remove(f"static/graph/{coin}.png")
         pf.plotCoin(coin)
     bal = str.splitlines(cb_acc.balance())        
     return render_template('main.html', bal=bal, imgsrc=f"static/graph/{coin}.png")
