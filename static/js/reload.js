@@ -1,9 +1,9 @@
 $(document).ready(function(){
   $("form").submit(function(event){
       event.preventDefault();
-      var pageURL = $(location).attr("href");
-      var sendURL = pageURL.substring(pageURL.lastIndexOf('/') + 1).toUpperCase();
-      console.log(sendURL)
+      var pageURL = $(location).attr("href"); // whole URL of webpage
+      var sendURL = readURL(pageURL)
+      console.log(sendURL) // check that its the right one lol
       if (sendURL) {
         $.post('/coinPostRqs', {"data": sendURL}, function(){
           setTimeout(function(){
@@ -28,4 +28,8 @@ function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min) + min);
+};
+
+function readURL(URL) {
+  return URL.substring(URL.lastIndexOf('/') + 1).toUpperCase(); // this is the /<coin> that i am sending to the backend to process the request
 };
