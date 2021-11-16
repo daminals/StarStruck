@@ -3,7 +3,7 @@
 # Nov 14 2021
 
 # Flask Imports
-from flask import Flask, escape, request, render_template
+from flask import Flask, escape, request, render_template, session
 from flask import Flask
 # os
 import os
@@ -11,6 +11,8 @@ import os
 from wallet import *
 
 app = Flask(__name__)
+app.secret_key = SERVERKEY
+
 
 @app.route('/cash') # not tracking USD to USD bc $1 will always = $1
 @app.route('/', methods=["GET", "POST"])
@@ -68,4 +70,4 @@ def eth():
 
 
 if __name__ == '__main__':
-    app.run(use_reloader=True)
+    app.run(use_reloader=True,host='0.0.0.0')

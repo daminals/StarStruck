@@ -32,6 +32,8 @@ CB_APISecret = os.environ.get('CB_APISecret', 3)
 # firebase
 FIREBASE = os.environ.get('FIREBASE', 3)
 FIREBASE_NAME = os.environ.get('FIREBASE_NAME', 3)
+# flask secret key
+SERVERKEY = os.environ.get('SERVERKEY', 3)
 
 # Initialize the app with a service account, granting admin privileges
 firebase_admin.initialize_app(cred, {
