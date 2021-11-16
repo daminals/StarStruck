@@ -16,11 +16,14 @@
 <title> StarStruck </title>
 </head>
 <body>
+ 
 <h1 class='starstruck'>StarStruck <img id="starstruck" class="logo" src="static/icon/StarStruck.png"/></h1>
 <div class="main">
   <img id="graph" src={{ imgsrc }} width='100%'/> <!-- TODO: make a carousel of the portfolio value over time + all the wallets value over time lol -->
   <div class="top-right"> {{ imgsrc[13:-4] }} </div>
 </div>
+
+
 
 <div class="sidenav">
   {% for i in bal[:-1] %}
