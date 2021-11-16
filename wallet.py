@@ -19,9 +19,9 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
 #classes
-from portfolio import Portfolio
-from coinbaseacc import CoinbaseAccount
-from astroalgo import AstrologyAlgorithm
+from cogs.portfolio import Portfolio
+from cogs.coinbaseacc import CoinbaseAccount
+from cogs.astroalgo import AstrologyAlgorithm
 
 cred = credentials.Certificate("ssfbkey.json") #firebase key
 
@@ -52,8 +52,8 @@ pf = Portfolio(ref)
 def main():
     #print(cb_acc.balance())
     #pf.plotpf()
-    #cb_acc.current_price("BTC")
-    #pf.plotCoin("BTC")
+    cb_acc.current_price("BTC")
+    pf.plotCoin("BTC")
     #cb_acc.sell("BTC",1) # fee was 99 cents bruh
     pass
 
