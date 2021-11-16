@@ -3,7 +3,7 @@
 # Nov 14 2021
 
 # Flask Imports
-from flask import Flask, escape, request, render_template, session
+from flask import Flask, escape, request, render_template, session, redirect
 from flask import Flask
 # os
 import os
@@ -12,61 +12,42 @@ from wallet import *
 
 app = Flask(__name__)
 app.secret_key = SERVERKEY
+all_coin_wallets = cb_acc.all_coin_wallets()
 
-
-@app.route('/cash') # not tracking USD to USD bc $1 will always = $1
 @app.route('/', methods=["GET", "POST"])
 def main():
     if request.method == "POST":
         print(cb_acc.balance()) # update balance
-        os.remove("static/graph/Portfolio.png")
+        os.remove("static/graph/Portfolio.png") # refresh graph
         pf.plotpf() # update graph
     bal = str.splitlines(cb_acc.balance())
     return render_template('main.html', bal=bal, imgsrc="static/graph/Portfolio.png")
 
 # crypto pages
-@app.route('/btc', methods=["GET", "POST"])
-def btc():
-    coin = "BTC"
+@app.route('/<coin>')
+def coin_render(coin):
+    coin = coin.upper()
+    print(coin)
+    if coin not in all_coin_wallets:
+        abort(404)
+    else:
+        bal = str.splitlines(cb_acc.balance())        
+        return render_template('main.html', bal=bal, imgsrc=f"static/graph/{coin}.png")
+
+
+@app.route('/coinPostRqs', methods=["GET", "POST"])
+def receive():
     if request.method == "POST":
+        coin = request.form['data']
         print(cb_acc.balance())
         cb_acc.current_price(coin)
         os.remove(f"static/graph/{coin}.png")
         pf.plotCoin(coin)
-    bal = str.splitlines(cb_acc.balance())        
-    return render_template('main.html', bal=bal, imgsrc=f"static/graph/{coin}.png")
+    return "reading get request⏳"
 
-@app.route('/ltc', methods=["GET", "POST"])
-def ltc():
-    coin = "LTC"
-    if request.method == "POST":
-        print(cb_acc.balance())
-        cb_acc.current_price(coin)
-        pf.plotCoin(coin)
-    bal = str.splitlines(cb_acc.balance())
-    print(bal)   
-    return render_template('main.html', bal=bal, imgsrc=f"static/graph/{coin}.png")
-
-@app.route('/doge', methods=["GET", "POST"])
-def doge():
-    coin = "DOGE"
-    if request.method == "POST":
-        print(cb_acc.balance())
-        cb_acc.current_price(coin)
-        pf.plotCoin(coin)
-    bal = str.splitlines(cb_acc.balance())        
-    return render_template('main.html', bal=bal, imgsrc=f"static/graph/{coin}.png")
-
-@app.route('/eth', methods=["GET", "POST"])
-def eth():
-    coin = "ETH"
-    if request.method == "POST":
-        print(cb_acc.balance())
-        cb_acc.current_price(coin)
-        pf.plotCoin(coin)
-    bal = str.splitlines(cb_acc.balance())        
-    return render_template('main.html', bal=bal, imgsrc=f"static/graph/{coin}.png")
-
+@app.route('/cash') # not tracking USD to USD bc $1 will always = $1
+def redirect_cash():
+    return redirect("/")
 
 
 if __name__ == '__main__':

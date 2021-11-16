@@ -41,8 +41,14 @@ class CoinbaseAccount:
         self.portfoliofb.update({now: total})
         return('\n'.join( message ))
     
-    def listize(bal):
-        pass
+    def all_coin_wallets(self):
+        all_wallets = []
+        for wallet in self.accounts.data:
+            value = str(wallet['native_balance']).replace('USD','')
+            if float(value) != float(0):
+                if wallet['name'] != "Cash (USD)":
+                    all_wallets.append(str(wallet['name'])[:-7])
+        return all_wallets
     
     def current_price(self, coin):
         currency_code = "USD"
@@ -50,15 +56,25 @@ class CoinbaseAccount:
         coin_fb = self.p_crypto.child(f'{coin}/POT')
         now = self.graph_now() # write timestamp to update graph
         coin_fb.update({now: price}) # update firebase with new data
-        return price
+        return float(price)
     
-    def buy(self, coin=None):
+    def priceToCoin(self, coin):
+        price = self.current_price(coin) # read coin price
+        conversion_rate = amnt/price # calculate conversion rate
+        coin_amnt = conversion_rate # since we are converting dollars to coins we are taking the conversion rate of $x to 1 coin and the conversion rate is the percentage
+        return float(coin_amnt)
+    
+    def buy(self, coin, amnt: float):
+        coin_amnt = self.priceToCoin(coin)
+        
         payment_methods = self.cb.get_payment_methods()[0]
         account = self.cb.get_primary_account()
+        
+        
         #print(payment_methods)
     
     def sell(self, coin, amnt: float): # NEVER USE THIS!!!!! FEES TOO HIGH
-        price = float(self.current_price(coin)) # read coin price
+        price = self.current_price(coin) # read coin price
         conversion_rate = amnt/price # calculate conversion rate
         coin_amnt = conversion_rate # since we are converting dollars to coins we are taking the conversion rate of $x to 1 coin and the conversion rate is the percentage
         print(coin_amnt)
