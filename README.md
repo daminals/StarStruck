@@ -11,14 +11,14 @@ A Crypto Wallet with an Astrology-Based Investment Algorithm
 
 <details>
 <summary>Flask Component</summary>
-<h4> Layout of the Application </h4>
+**Layout of the Application**
 <img src="#" /> <br/>
 boring explanation boring explanation boring explanation
 
-<br> <h4> JQuery Integration </h4>
+<br> **JQuery Integration**
 boring explanation boring explanation boring explanation
 
-<br> <h4> Easily Expandable Routes </h4>
+<br> **Easily Expandable Routes** 
 boring explanation boring explanation boring explanation
 <br/>
 <br/>
@@ -26,17 +26,18 @@ boring explanation boring explanation boring explanation
 
 <details>
 <summary>Coinbase API and Custom Wrapper</summary>
-<h4> Buying and Selling </h4> 
+**Buying and Selling**
 boring explanation boring explanation boring explanation
 
-<br> <h4> Custom Wrapper </h4> boring explanation boring explanation boring explanation
+<br>  **Custom Wrapper**
+boring explanation boring explanation boring explanation
 <br/>
 <br/>
 </details>
 
 <details>
 <summary> Portfolio </summary>
-<h4> Graphing from Firebase </h4> 
+**Graphing from Firebase**
 Reading and setting data to and from Firebase Real Time Database and using said data in conjunction with Matplotlib to show current graphs of the Portfolio value over time and the individuals coin values over time
 <br/>
 <br/>
@@ -45,6 +46,6 @@ Reading and setting data to and from Firebase Real Time Database and using said 
 
 <details>
 <summary> Astrology-based Algorithm </summary>
-<h4> Work in Progress </h4> 
+**Work in Progress**
 
 <br/></details>
