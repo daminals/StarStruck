@@ -20,7 +20,8 @@ boring explanation boring explanation boring explanation
 
 <br> <h4> Easily Expandable Routes </h4>
 boring explanation boring explanation boring explanation
-<br/><br/>
+<br/>
+<br/>
 </details>
 
 <details>
@@ -29,7 +30,6 @@ boring explanation boring explanation boring explanation
 boring explanation boring explanation boring explanation
 
 <br> <h4> Custom Wrapper </h4> boring explanation boring explanation boring explanation
-
 <br/>
 
 </details>
