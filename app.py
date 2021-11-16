@@ -5,6 +5,8 @@
 # Flask Imports
 from flask import Flask, escape, request, render_template
 from flask import Flask
+# os
+import os
 # wallet import
 from wallet import *
 
@@ -15,6 +17,7 @@ app = Flask(__name__)
 def main():
     if request.method == "POST":
         print(cb_acc.balance()) # update balance
+        os.remove("static/graph/Portfolio.png")
         pf.plotpf() # update graph
     bal = str.splitlines(cb_acc.balance())
     return render_template('main.html', bal=bal, imgsrc="static/graph/Portfolio.png")
