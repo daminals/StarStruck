@@ -31,14 +31,15 @@ boring explanation boring explanation boring explanation
 
 <br> <h4> Custom Wrapper </h4> boring explanation boring explanation boring explanation
 <br/>
-
+<br/>
 </details>
 
 <details>
 <summary> Portfolio </summary>
 <h4> Graphing from Firebase </h4> 
 Reading and setting data to and from Firebase Real Time Database and using said data in conjunction with Matplotlib to show current graphs of the Portfolio value over time and the individuals coin values over time
-<br/><br/>
+<br/>
+<br/>
 
 </details>
 
