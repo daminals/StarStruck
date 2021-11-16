@@ -34,7 +34,6 @@ def coin_render(coin):
         bal = str.splitlines(cb_acc.balance())        
         return render_template('main.html', bal=bal, imgsrc=f"static/graph/{coin}.png")
 
-
 @app.route('/coinPostRqs', methods=["GET", "POST"])
 def receive():
     if request.method == "POST":
@@ -48,7 +47,6 @@ def receive():
 @app.route('/cash') # not tracking USD to USD bc $1 will always = $1
 def redirect_cash():
     return redirect("/")
-
 
 if __name__ == '__main__':
     app.run(use_reloader=True,host='0.0.0.0')
