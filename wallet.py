@@ -60,7 +60,8 @@ def main():
     #cb.buy("DOGE", 0.25)
     print("\n")
     #cb.getUser()
-    cb.coinToCoin("BTC","DOGE",0.1)
+    #cb.coinToCoin("BTC","DOGE",0.1)
+    cb.test_buy()
     
 
 

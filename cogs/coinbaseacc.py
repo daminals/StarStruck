@@ -109,19 +109,17 @@ class CoinbasePriceAPI: # custom Wrapper since coinbase-py is outdated and poorl
         self.secret_key = apisecret
         self.authWrapper = cbWalletAuth(self.api_key,self.secret_key)
 
-    def transfer(self, sellCoinID, buyCoinID, amnt, coin):
+    def transfer(self, sellCoinID, buyCoinID, amnt, coin): # TODO: amount should be converted from $ to coin amnt
         tx = {'type': 'BTC-DOGE', 'to': buyCoinID, 'amount': str(amnt), 'currency': str(coin)}
         r = requests.post(f"https://api.coinbase.com/v2/accounts/:{sellCoinID}/transactions", data=tx, auth=self.authWrapper)
         print(r.content)
         if r.status_code == 200:
-            print(f'We have bought {coin}')
+            print(f'StarStruck bought {amnt} {coin}')
     
     def buyCoin(self, acc_id, payment_method):
-        print('we are in buy crypto method')
         tx = {"amount": "1.00", "currency": "BTC", "payment_method": payment_method}
-        r = requests.post(f"https://api.coinbase.com/v2/accounts/{accID}/buys", data=tx, auth=self.authWrapper)
-        if r.status_code == 200:
-            print(f'We have bought {ccy}')
+        r = requests.post(f"https://api.coinbase.com/v2/accounts/{acc_id}/buys", data=tx, auth=self.authWrapper)
+        print(r.content)
 
     
     def getUser(self):
