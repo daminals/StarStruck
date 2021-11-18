@@ -21,7 +21,7 @@ class CoinbaseAccount:
         self.user = self.cb.get_current_user()
         self.accounts = self.cb.get_accounts()
         self.priceAPI = CoinbasePriceAPI(self.cb) # use custom API
-        
+    
     def graph_now(self):
         now = dt.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
         return now
@@ -58,31 +58,36 @@ class CoinbaseAccount:
         coin_fb.update({now: price}) # update firebase with new data
         return float(price)
     
-    def priceToCoin(self, coin):
+    def priceToCoin(self, coin, amnt: float):
         price = self.current_price(coin) # read coin price
         conversion_rate = amnt/price # calculate conversion rate
         coin_amnt = conversion_rate # since we are converting dollars to coins we are taking the conversion rate of $x to 1 coin and the conversion rate is the percentage
         return float(coin_amnt)
     
     def buy(self, coin, amnt: float):
-        coin_amnt = self.priceToCoin(coin)
-        
-        payment_methods = self.cb.get_payment_methods()[0]
-        account = self.cb.get_primary_account()
-        
-        
-        #print(payment_methods)
+        coin_amnt = self.priceToCoin(coin, amnt)
+        payment_method = self.cb.get_payment_methods()[0]
+        account = self.get_coin_account(coin)
+        account.buy(amount=coin_amnt,
+                    currency=coin,
+                    payment_method=payment_method.id)
+        return True
     
     def sell(self, coin, amnt: float): # NEVER USE THIS!!!!! FEES TOO HIGH
-        price = self.current_price(coin) # read coin price
-        conversion_rate = amnt/price # calculate conversion rate
-        coin_amnt = conversion_rate # since we are converting dollars to coins we are taking the conversion rate of $x to 1 coin and the conversion rate is the percentage
-        print(coin_amnt)
+        coin_amnt = self.priceToCoin(coin, amnt) # since we are converting dollars to coins we are taking the conversion rate of $x to 1 coin and the conversion rate is the percentage
         payment_method = self.cb.get_payment_methods()[0] # use first payment method
         account = self.cb.get_primary_account() # get account
         raise sellException
-        #account.sell(amount=coin_amnt, currency="btc", payment_method=payment_method.id)
+        #account.sell(amount=coin_amnt, currency=coin, payment_method=payment_method.id)
+        return True
 
+    def get_coin_account(self, coin):
+        accounts = self.accounts.data
+        #print(accounts)
+        for wallet in accounts:
+            if coin == wallet['balance']['currency']:
+                return wallet
+        raise noAccountException
 class CoinbasePriceAPI: # custom Wrapper since coinbase-py is outdated and poorly documented
     def __init__(self, client):
         self.cb = client
@@ -100,3 +105,7 @@ class sellException(Exception): # custom exception so i don't lose my money to t
     def __init__(self, message="Transaction fees too high"):
         self.message = message
         super().__init__(self.message)
+class noAccountException(Exception):
+        def __init__(self, message="Account for desired coin could not be found"):
+            self.message = message
+            super().__init__(self.message)

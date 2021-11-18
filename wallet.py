@@ -56,8 +56,8 @@ def main():
     #pf.plotpf()
     #cb_acc.current_price("BTC")
     #pf.plotCoin("BTC")
-    #cb_acc.sell("BTC",1) # fee was 99 cents bruh
-    print(cb_acc.all_coin_wallets())
+    #cb_acc.sell("BTC",0.25) # fee was 99 cents bruh
+    cb_acc.buy("DOGE", 0.25)
 
 
 
