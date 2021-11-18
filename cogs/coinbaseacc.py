@@ -13,6 +13,7 @@ import datetime as dt
 # requests
 import requests
 import urllib.request
+from requests.utils import to_native_string
 import json, os, time, hmac, hashlib
 from urllib.error import HTTPError
 class CoinbaseAccount:
@@ -86,7 +87,11 @@ class CoinbaseAccount:
     def coinToCoin(self,sellCoin,buyCoin, amnt):
         sellCoinAcc = self.get_coin_account(sellCoin)
         buyCoinAcc = self.get_coin_account(buyCoin)
+        print(sellCoinAcc.id)
         self.priceAPI.transfer(sellCoinAcc.id, buyCoinAcc.id, amnt, sellCoin)
+    
+    def getUser(self):
+        self.priceAPI.getUser()
 
     def get_coin_account(self, coin): # coinbase API does not read the currency field for buy accounts
         accounts = self.accounts.data 
@@ -102,13 +107,18 @@ class CoinbasePriceAPI: # custom Wrapper since coinbase-py is outdated and poorl
 
     def transfer(self, sellCoinID, buyCoinID, amnt, coin):
         try:
-            tx = {"amount": str(amnt), "currency": str(coin)}
+            tx = {"type": "BTC-DOGE", "to": buyCoinID, "amount": str(amnt), "currency": str(coin)}
             r = requests.post(f"https://api.coinbase.com/v2/accounts/:{sellCoinID}/transactions", json=tx, auth=self.authWrapper)
+            print(r.content)
             if r.status_code == 200:
                 print(f'We have bought {coin}')
-        except:
-            print("oops")
+        except Exception as e:
+            print(f"Failed Transfer: {e}")
     
+    def getUser(self):
+        r = requests.get(f"https://api.coinbase.com/v2/accounts", auth=self.authWrapper)
+        print(r.content)
+        
     def get_price(self,coin, real="USD"):
         url = f'https://api.coinbase.com/v2/prices/{coin}-{real}/spot'
         priceR = requests.get(url)
@@ -123,16 +133,26 @@ class cbWalletAuth(AuthBase):
     
     def __call__(self, request):
         timestamp = str(int(time.time()))
-        message = (timestamp + request.method + request.path_url).encode("utf-8")
+        secret = self.secret_key
         if request.body:
-            message=b''.join([message, request.body])
-        signature = hmac.new(bytes(self.secret_key , 'latin-1'), message, hashlib.sha256).hexdigest()
-
+            message = timestamp + request.method + request.path_url + (request.body).decode("UTF-8")
+        else:
+            message = timestamp + request.method + request.path_url + ''
+        if not isinstance(message, bytes):
+            message = message.encode()
+        if not isinstance(secret, bytes):
+            secret = secret.encode()
+            
+        signature = hmac.new(secret, message, hashlib.sha256).hexdigest() 
         request.headers.update({
-            'CB-ACCESS-SIGN': signature,
-            'CB-ACCESS-TIMESTAMP': timestamp,
-            'CB-ACCESS-KEY': self.api_key,
-            'CB-VERSION' : '2020-06-16'
+            to_native_string('CB-VERSION') : '2020-06-16',
+            to_native_string('CB-ACCESS-SIGN'): signature,
+            to_native_string('CB-ACCESS-TIMESTAMP'): timestamp,
+            to_native_string('CB-ACCESS-KEY'): self.api_key,
+            # application/json
+            to_native_string('Accept'): 'application/json',
+            to_native_string('Content-Type'): 'application/json',
+            to_native_string('User-Agent'): 'coinbase/python/2.0'
         })
         return request    
 class Error(Exception):
