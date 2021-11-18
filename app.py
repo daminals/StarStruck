@@ -12,15 +12,15 @@ from wallet import *
 
 app = Flask(__name__)
 app.secret_key = SERVERKEY
-all_coin_wallets = cb_acc.all_coin_wallets()
+all_coin_wallets = cb.all_coin_wallets()
 
 @app.route('/', methods=["GET", "POST"])
 def main():
     if request.method == "POST":
-        print(cb_acc.balance()) # update balance
+        print(cb.balance()) # update balance
         os.remove("static/graph/Portfolio.png") # refresh graph
         pf.plotpf() # update graph
-    bal = str.splitlines(cb_acc.balance())
+    bal = str.splitlines(cb.balance())
     return render_template('main.html', bal=bal, imgsrc="static/graph/Portfolio.png")
 
 # crypto pages
@@ -31,15 +31,15 @@ def coin_render(coin):
     if coin not in all_coin_wallets:
         abort(404)
     else:
-        bal = str.splitlines(cb_acc.balance())        
+        bal = str.splitlines(cb.balance())        
         return render_template('main.html', bal=bal, imgsrc=f"static/graph/{coin}.png")
 
 @app.route('/coinPostRqs', methods=["GET", "POST"])
 def receive():
     if request.method == "POST":
         coin = request.form['data']
-        print(cb_acc.balance())
-        cb_acc.current_price(coin)
+        print(cb.balance())
+        cb.current_price(coin)
         os.remove(f"static/graph/{coin}.png")
         pf.plotCoin(coin)
     return "reading get request⏳"
