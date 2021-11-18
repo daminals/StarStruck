@@ -20,8 +20,7 @@ def main():
         print(cb.balance()) # update balance
         os.remove("static/graph/Portfolio.png") # refresh graph
         pf.plotpf() # update graph
-    bal = str.splitlines(cb.balance())
-    return render_template('main.html', bal=bal, imgsrc="static/graph/Portfolio.png")
+    return render_template('main.html', bal=all_coin_wallets, imgsrc="static/graph/Portfolio.png")
 
 # crypto pages
 @app.route('/<coin>')
@@ -32,7 +31,7 @@ def coin_render(coin):
         abort(404)
     else:
         bal = str.splitlines(cb.balance())        
-        return render_template('main.html', bal=bal, imgsrc=f"static/graph/{coin}.png")
+        return render_template('main.html', bal=all_coin_wallets, imgsrc=f"static/graph/{coin}.png")
 
 @app.route('/coinPostRqs', methods=["GET", "POST"])
 def receive():
