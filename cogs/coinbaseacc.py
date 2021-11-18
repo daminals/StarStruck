@@ -87,7 +87,6 @@ class CoinbaseAccount:
     def coinToCoin(self,sellCoin,buyCoin, amnt):
         sellCoinAcc = self.get_coin_account(sellCoin)
         buyCoinAcc = self.get_coin_account(buyCoin)
-        print(sellCoinAcc.id)
         self.priceAPI.transfer(sellCoinAcc.id, buyCoinAcc.id, amnt, sellCoin)
     
     def getUser(self):
@@ -134,12 +133,14 @@ class cbWalletAuth(AuthBase):
     def __call__(self, request):
         timestamp = str(int(time.time()))
         secret = self.secret_key
+        message = timestamp + request.method + request.path_url
+        #print(request.body)
         if request.body:
-            message = timestamp + request.method + request.path_url + (request.body).decode("UTF-8")
-        else:
-            message = timestamp + request.method + request.path_url + ''
+            message=b''.join([message, request.body])
+            print(message)
         if not isinstance(message, bytes):
             message = message.encode()
+            print(message)
         if not isinstance(secret, bytes):
             secret = secret.encode()
             
