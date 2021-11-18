@@ -121,7 +121,6 @@ class CoinbasePriceAPI: # custom Wrapper since coinbase-py is outdated and poorl
         r = requests.post(f"https://api.coinbase.com/v2/accounts/{acc_id}/buys", data=tx, auth=self.authWrapper)
         print(r.content)
 
-    
     def getUser(self):
         r = requests.get(f"https://api.coinbase.com/v2/accounts", auth=self.authWrapper)
         print(r.content)
