@@ -92,6 +92,11 @@ class CoinbaseAccount:
     def getUser(self):
         self.priceAPI.getUser()
 
+    def test_buy(self):
+        acc = self.cb.get_primary_account() # get account
+        payment_method = self.cb.get_payment_methods()[0] # use first payment method
+        self.priceAPI.buyCoin(acc.id, payment_method)
+
     def get_coin_account(self, coin): # coinbase API does not read the currency field for buy accounts
         accounts = self.accounts.data 
         for wallet in accounts:
@@ -110,6 +115,14 @@ class CoinbasePriceAPI: # custom Wrapper since coinbase-py is outdated and poorl
         print(r.content)
         if r.status_code == 200:
             print(f'We have bought {coin}')
+    
+    def buyCoin(self, acc_id, payment_method):
+        print('we are in buy crypto method')
+        tx = {"amount": "1.00", "currency": "BTC", "payment_method": payment_method}
+        r = requests.post(f"https://api.coinbase.com/v2/accounts/{accID}/buys", data=tx, auth=self.authWrapper)
+        if r.status_code == 200:
+            print(f'We have bought {ccy}')
+
     
     def getUser(self):
         r = requests.get(f"https://api.coinbase.com/v2/accounts", auth=self.authWrapper)
