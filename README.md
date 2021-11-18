@@ -11,7 +11,7 @@ A Crypto Wallet with an Astrology-Based Investment Algorithm
 
  **Layout of the Application** <br/>
 
-<img src="#" /> <br/>
+<img src="https://github.com/daminals/StarStruck/blob/master/static/markdownResources/layout.png" /> <br/>
 boring explanation boring explanation boring explanation
 
 <br> **JQuery Integration** <br/>
