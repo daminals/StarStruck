@@ -14,7 +14,7 @@ import datetime as dt
 import requests
 import urllib.request
 from requests.utils import to_native_string
-import json, os, time, hmac, hashlib
+import json, os, time, hmac, hashlib, base64
 from urllib.error import HTTPError
 class CoinbaseAccount:
     def __init__(self, CB_APIKey, CB_APISecret, database):
@@ -105,14 +105,11 @@ class CoinbasePriceAPI: # custom Wrapper since coinbase-py is outdated and poorl
         self.authWrapper = cbWalletAuth(self.api_key,self.secret_key)
 
     def transfer(self, sellCoinID, buyCoinID, amnt, coin):
-        try:
-            tx = {"type": "BTC-DOGE", "to": buyCoinID, "amount": str(amnt), "currency": str(coin)}
-            r = requests.post(f"https://api.coinbase.com/v2/accounts/:{sellCoinID}/transactions", json=tx, auth=self.authWrapper)
-            print(r.content)
-            if r.status_code == 200:
-                print(f'We have bought {coin}')
-        except Exception as e:
-            print(f"Failed Transfer: {e}")
+        tx = {'type': 'BTC-DOGE', 'to': buyCoinID, 'amount': str(amnt), 'currency': str(coin)}
+        r = requests.post(f"https://api.coinbase.com/v2/accounts/:{sellCoinID}/transactions", data=tx, auth=self.authWrapper)
+        print(r.content)
+        if r.status_code == 200:
+            print(f'We have bought {coin}')
     
     def getUser(self):
         r = requests.get(f"https://api.coinbase.com/v2/accounts", auth=self.authWrapper)
@@ -134,16 +131,13 @@ class cbWalletAuth(AuthBase):
         timestamp = str(int(time.time()))
         secret = self.secret_key
         message = timestamp + request.method + request.path_url
-        #print(request.body)
         if request.body:
-            message=b''.join([message, request.body])
-            print(message)
+            message = message + request.body
         if not isinstance(message, bytes):
             message = message.encode()
-            print(message)
         if not isinstance(secret, bytes):
             secret = secret.encode()
-            
+
         signature = hmac.new(secret, message, hashlib.sha256).hexdigest() 
         request.headers.update({
             to_native_string('CB-VERSION') : '2020-06-16',
