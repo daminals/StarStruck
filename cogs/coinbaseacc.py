@@ -110,14 +110,19 @@ class CoinbasePriceAPI: # custom Wrapper since coinbase-py is outdated and poorl
         self.authWrapper = cbWalletAuth(self.api_key,self.secret_key)
 
     def transfer(self, sellCoinID, buyCoinID, amnt, coin): # TODO: amount should be converted from $ to coin amnt
-        tx = {'type': 'BTC-DOGE', 'to': buyCoinID, 'amount': str(amnt), 'currency': str(coin)}
+        tx = {'type': 'transfer',
+              'to': buyCoinID, 
+              'amount': str(amnt), 
+              'currency': str(coin)}
         r = requests.post(f"https://api.coinbase.com/v2/accounts/:{sellCoinID}/transactions", data=tx, auth=self.authWrapper)
-        print(r.content)
+        print(r.content, r.status_code)
         if r.status_code == 200:
             print(f'StarStruck bought {amnt} {coin}')
     
     def buyCoin(self, acc_id, payment_method):
-        tx = {"amount": "1.00", "currency": "BTC", "payment_method": payment_method}
+        tx = {"amount": "1.00",
+              "currency": "BTC",
+              "payment_method": payment_method}
         r = requests.post(f"https://api.coinbase.com/v2/accounts/{acc_id}/buys", data=tx, auth=self.authWrapper)
         print(r.content)
 
@@ -150,7 +155,7 @@ class cbWalletAuth(AuthBase):
 
         signature = hmac.new(secret, message, hashlib.sha256).hexdigest() 
         request.headers.update({
-            to_native_string('CB-VERSION') : '2020-06-16',
+            to_native_string('CB-VERSION') : '2021-11-11',
             to_native_string('CB-ACCESS-SIGN'): signature,
             to_native_string('CB-ACCESS-TIMESTAMP'): timestamp,
             to_native_string('CB-ACCESS-KEY'): self.api_key,
