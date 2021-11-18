@@ -48,16 +48,18 @@ portfoliofb = ref.child('portfolio')
 # information
 cb = Client(CB_APIKey, CB_APISecret)
 
-cb_acc = CoinbaseAccount(cb, ref)
+cb = CoinbaseAccount(CB_APIKey, CB_APISecret, ref)
 pf = Portfolio(ref)
 
 def main():
     #print(cb_acc.balance())
     #pf.plotpf()
-    #cb_acc.current_price("BTC")
+    #cb.current_price("BTC")
     #pf.plotCoin("BTC")
-    #cb_acc.sell("BTC",0.25) # fee was 99 cents bruh
-    cb_acc.buy("DOGE", 0.25)
+    #cb.sell("BTC",0.25) # fee was 99 cents bruh
+    #cb.buy("DOGE", 0.25)
+    cb.coinToCoin("BTC","DOGE",0.1)
+    
 
 
 
