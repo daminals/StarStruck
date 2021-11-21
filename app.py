@@ -32,7 +32,7 @@ def coin_render(coin):
     coin = coin.upper()
     print(coin)
     if coin not in all_coin_wallets:
-        abort(404)
+        return redirect("/404")
     else:
         bal = str.splitlines(cb.balance())        
         return render_template('main.html', bal=bal, imgsrc=f"static/graph/{coin}.png")
@@ -50,6 +50,10 @@ def receive():
 @app.route('/cash') # not tracking USD to USD bc $1 will always = $1
 def redirect_cash():
     return redirect("/")
+
+@app.route('/404')
+def page_not_found():
+    return "error 404 page not found lol"
 
 if __name__ == '__main__':
     app.run(use_reloader=True,host='0.0.0.0')
