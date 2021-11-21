@@ -40,3 +40,36 @@ class Portfolio:
         plt.tight_layout() # show off whole graphs no cutoffs 
         plt.savefig(figname, transparent=True) #png
         plt.close()
+
+class firebaseStruct:
+    def __init__(self, portfoliofb):
+        self.portfoliofb = portfoliofb
+    
+    def __struct__():
+        users_ref = ref.child('crypto') # price over time = POT
+        users_ref.set({
+            'BTC': {
+                'DOB': '03.01.2009 | 13:15:05 GMT', # 3 jan 2009
+                'POT': {
+                    'TIMESTAMP': 'PRICE'
+                }
+            },
+            'DOGE': {
+                'DOB': '06.12,2013 | 12:00:00 EDT', # 6 december 2013
+                'POT': {
+                    'TIMESTAMP': 'PRICE'
+                }
+            },
+            'ETH': {
+                'DOB': '06.12,2013 | ', # 30 july 2015
+                'POT': {
+                    'TIMESTAMP': 'PRICE'
+                }
+            },
+            'LTC': {
+                'DOB': '13.10.2011 | ', # 13 october 2011
+                'POT': {
+                    'TIMESTAMP': 'PRICE'
+                }
+            }
+        })
