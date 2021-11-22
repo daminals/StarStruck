@@ -10,10 +10,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
 <script src="{{url_for('static', filename='js/reload.js')}}"></script>
-<meta http-equiv='cache-control' content='no-cache'>
-<meta http-equiv='expires' content='0'>
-<meta http-equiv='pragma' content='no-cache'>
-
    <!-- Social Media Links -->
     <meta property="og:title" content="StarStruck">
     <meta property="og:description" content="Investment Algorithm to Mine the Stars">
@@ -27,18 +23,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Investment Algorithm to Mine the Stars">
     <!-- Social Media Links -->
-
-
 <title> StarStruck </title>
 </head>
 <body>
-
 <h1 class='starstruck'>StarStruck <img id="starstruck" class="logo" src="static/icon/StarStruck.png"/></h1>
 <div class="main">
   <img id="graph" src={{ imgsrc }} width='100%'/> <!-- TODO: make a carousel of the portfolio value over time + all the wallets value over time lol -->
   <div class="top-right" id='title'> {{ imgsrc[13:-4] }} </div>
 </div>
-
 
 <div class="sidenav">
   {% for i in bal[:-1] %}
@@ -51,6 +43,5 @@
     <input class="btn btn-success" type="submit" value="UPDATE"/>
   </form>
 </div>
-
 </body>
 </html>
