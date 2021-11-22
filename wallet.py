@@ -49,6 +49,7 @@ portfoliofb = ref.child('portfolio')
 cb = Client(CB_APIKey, CB_APISecret)
 cb = CoinbaseAccount(CB_APIKey, CB_APISecret, ref)
 pf = Portfolio(ref)
+astro = AstrologyAlgorithm(ref)
 
 def main():
     #print(cb_acc.balance())
@@ -59,7 +60,8 @@ def main():
     #cb.buy("DOGE", 0.25)
     #cb.getUser("BTC")
     #cb.coinToCoin("BTC","DOGE",0.1)
-    cb.test_buy()
+    #cb.test_buy()
+    astro.readCoin("BTC")
 
 
 if __name__ == '__main__':
