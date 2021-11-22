@@ -16,6 +16,8 @@ import urllib.request
 from requests.utils import to_native_string
 import json, os, time, hmac, hashlib, base64, random
 from urllib.error import HTTPError
+# robin stocks
+import robin_stocks.robinhood as rstonks
 class CoinbaseAccount:
     def __init__(self, CB_APIKey, CB_APISecret, database):
         self.cb = Client(CB_APIKey, CB_APISecret)
@@ -103,33 +105,20 @@ class CoinbaseAccount:
             if coin == wallet['balance']['currency']:
                 return wallet
         raise noAccountException
-
+    
 class robinAccount:
     def __init__(self, payload):
         self.payload = payload
-    
-    def login():
-        pass
-    
-    def generate_device_token():
-        rands = []
-        for i in range(0, 16):
-            r = random.random()
-            rand = 4294967296.0 * r
-            rands.append((int(rand) >> ((3 & i) << 3)) & 255)
-        hexa = []
-        for i in range(0, 256):
-            hexa.append(str(hex(i+256)).lstrip("0x").rstrip("L")[1:])
-        id = ""
-        for i in range(0, 16):
-            id += hexa[rands[i]]
-            if (i == 3) or (i == 5) or (i == 7) or (i == 9):
-                id += "-"
-        return(id)
-    
-    
-    
-
+        rstonks.login(username=self.payload["username"],
+                      password=self.payload["password"],
+                      by_sms=True)
+    def portfolio(self):
+        stonks = rstonks.get_crypto_positions()
+        stonks = list(stonks)
+        for i in stonks:
+            print(i)
+            print("\n")
+        #print(stonks)
 class CoinbasePriceAPI: # custom Wrapper since coinbase-py is outdated and poorly documented
     def __init__(self, apikey, apisecret, base_api_uri=None, api_version=None):
         self.api_key = apikey

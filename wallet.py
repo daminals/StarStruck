@@ -20,7 +20,7 @@ from firebase_admin import credentials
 from firebase_admin import db
 #classes
 from cogs.portfolio import Portfolio
-from cogs.coinbaseacc import CoinbaseAccount
+from cogs.coinbaseacc import CoinbaseAccount, robinAccount
 from cogs.astroalgo import AstrologyAlgorithm
 
 cred = credentials.Certificate("ssfbkey.json") #firebase key
@@ -50,6 +50,8 @@ cb = Client(CB_APIKey, CB_APISecret)
 cb = CoinbaseAccount(CB_APIKey, CB_APISecret, ref)
 pf = Portfolio(ref)
 
+rb = robinAccount(json.load(open("robin.json")))
+
 def main():
     #print(cb_acc.balance())
     #pf.plotpf()
@@ -58,8 +60,9 @@ def main():
     #cb.sell("BTC",0.25) # fee was 99 cents bruh
     #cb.buy("DOGE", 0.25)
     #cb.getUser()
-    cb.coinToCoin("BTC","DOGE",0.1)
+    #cb.coinToCoin("BTC","DOGE",0.1)
     #cb.test_buy()
+    rb.portfolio()
 
 
 if __name__ == '__main__':
