@@ -42,7 +42,7 @@ class CoinbaseAccount:
         now = self.graph_now()
         print(now) # write timestamp
         self.portfoliofb.update({now: total})
-        return('\n'.join( message ))
+        return('\n'.join(message))
     
     def all_coin_wallets(self):
         all_wallets = []
