@@ -16,7 +16,6 @@ import urllib.request
 from requests.utils import to_native_string
 import json, os, time, hmac, hashlib, base64
 from urllib.error import HTTPError
-# someone else's coinbase py fork
 class CoinbaseAccount:
     def __init__(self, CB_APIKey, CB_APISecret, database):
         self.cb = Client(CB_APIKey, CB_APISecret)
