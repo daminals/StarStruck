@@ -49,25 +49,49 @@ class firebaseStruct:
         users_ref = ref.child('crypto') # price over time = POT
         users_ref.set({
             'BTC': {
-                'DOB': '03.01.2009 | 13:15:05 EDT', # 3 jan 2009
+                'DOB': {"year": 2009,
+                        "month": 1,
+                        "day": 3,
+                        "hour": 13,
+                        "min": 15,
+                        "second": 5,
+                        "timezone": "EDT"},
                 'POT': {
                     'TIMESTAMP': 'PRICE'
                 }
             },
             'DOGE': {
-                'DOB': '06.12,2013 | 12:00:00 EDT', # 6 december 2013
+                'DOB': {"year": 2013,
+                        "month": 12,
+                        "day": 6,
+                        "hour": 12,
+                        "min": 0,
+                        "second": 0,
+                        "timezone": "EDT"},
                 'POT': {
                     'TIMESTAMP': 'PRICE'
                 }
             },
             'ETH': {
-                'DOB': '06.12,2013 | ', # 30 july 2015
+                'DOB': {"year": 2015,
+                        "month": 7,
+                        "day": 30,
+                        "hour": 22,
+                        "min": 26,
+                        "second": 13,
+                        "timezone": "EDT"},
                 'POT': {
                     'TIMESTAMP': 'PRICE'
                 }
             },
             'LTC': {
-                'DOB': '13.10.2011 | ', # 13 october 2011
+                'DOB': {"year": 2011,
+                        "month": 10,
+                        "day": 13,
+                        "hour": 10,
+                        "min": 31,
+                        "second": 0,
+                        "timezone": "EDT"},
                 'POT': {
                     'TIMESTAMP': 'PRICE'
                 }

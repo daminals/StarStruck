@@ -10,11 +10,12 @@ class AstrologyAlgorithm:
     
     def readCoin(self, coin):
         coin_DOB = self.coin_data.get()[coin]["DOB"]
-        
+        return coin_DOB
     
     def create_chart(self, coin):
+        coinDOB = self.readCoin(coin)
         # name year month day hour minute city(EDT)
-        coin = KrInstance(coin, 2009, 1, 3, 13, 15, "New York")
+        coin = KrInstance(coin, coinDOB['year'], coinDOB['month'], coinDOB['day'], coinDOB['hour'], coinDOB['min'], coinDOB['timezone'])
         coin.get_all()
         coinSVG = MakeSvgInstance(coin, Cdir='static/birthcharts')
         coinSVG.makeSVG()
