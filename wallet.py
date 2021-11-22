@@ -57,9 +57,9 @@ def main():
     #pf.plotCoin("BTC")
     #cb.sell("BTC",0.25) # fee was 99 cents bruh
     #cb.buy("DOGE", 0.25)
-    #cb.getUser()
-    cb.coinToCoin("BTC","DOGE",0.1)
-    #cb.test_buy()
+    #cb.getUser("BTC")
+    #cb.coinToCoin("BTC","DOGE",0.1)
+    cb.test_buy()
 
 
 if __name__ == '__main__':

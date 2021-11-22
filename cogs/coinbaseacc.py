@@ -90,8 +90,9 @@ class CoinbaseAccount:
         buyCoinAcc = self.get_coin_account(buyCoin)
         self.priceAPI.transfer(sellCoinAcc.id, buyCoinAcc.id, amnt, sellCoin)
     
-    def getUser(self):
-        self.priceAPI.getUser()
+    def getUser(self, sellCoin):
+        sellCoinAcc = self.get_coin_account(sellCoin)
+        self.priceAPI.getUser(sellCoinAcc.id)
 
     def test_buy(self):
         acc = self.cb.get_primary_account() # get account
@@ -105,17 +106,25 @@ class CoinbaseAccount:
                 return wallet
         raise noAccountException
 class CoinbasePriceAPI: # custom Wrapper since coinbase-py is outdated and poorly documented
-    def __init__(self, apikey, apisecret, base_api_uri=None, api_version=None):
+    def __init__(self, apikey, apisecret, base_api_uri=None, api_version='2021-01-05'):
         self.api_key = apikey
         self.secret_key = apisecret
         self.authWrapper = cbWalletAuth(self.api_key,self.secret_key)
+        
+    def writeJSON(self, r, filename):
+        bytejson = json.loads(r.content.decode("utf8").replace("'",'"'))
+        with open(filename, 'w') as outfile:
+            json.dump(bytejson, outfile, indent=4,sort_keys=True)
+        return True
 
     def transfer(self, sellCoinID, buyCoinID, amnt, coin): # TODO: amount should be converted from $ to coin amnt
         tx = {'type': 'transfer',
               'to': buyCoinID, 
               'amount': str(amnt), 
               'currency': str(coin)}
-        r = requests.post(f"https://api.coinbase.com/v2/accounts/:{sellCoinID}/transactions", data=tx, auth=self.authWrapper)
+        r = requests.post(f"https://api.coinbase.com/v2/accounts/{sellCoinID}/transactions", data=tx, auth=self.authWrapper)
+        # returns entire transaction history as a get request
+        # self.writeJSON(r, 'return.json')
         print(r.content, r.status_code)
         if r.status_code == 200:
             print(f'StarStruck bought {amnt} {coin}')
@@ -125,11 +134,13 @@ class CoinbasePriceAPI: # custom Wrapper since coinbase-py is outdated and poorl
               "currency": "BTC",
               "payment_method": payment_method}
         r = requests.post(f"https://api.coinbase.com/v2/accounts/{acc_id}/buys", data=tx, auth=self.authWrapper)
-        print(r.content)
+        # returns no data as a get request
+        # self.writeJSON(r, 'buyreturn.json')
+        print(r.content, r.status_code)
 
-    def getUser(self):
-        r = requests.get(f"https://api.coinbase.com/v2/accounts", auth=self.authWrapper)
-        print(r.content)
+    def getUser(self, acc_id=None):
+        r = requests.get(f"https://api.coinbase.com/v2/accounts/{acc_id}", auth=self.authWrapper)
+        print(r.content, r.status_code)
         
     def get_price(self,coin, real="USD"):
         url = f'https://api.coinbase.com/v2/prices/{coin}-{real}/spot'
@@ -138,10 +149,10 @@ class CoinbasePriceAPI: # custom Wrapper since coinbase-py is outdated and poorl
         return price['data']['amount']
         
 class cbWalletAuth(AuthBase):
-    def __init__(self, apikey, apisecret, api_version=None):
+    def __init__(self, apikey, apisecret, api_version='2021-01-05'):
         self.api_key = apikey
         self.secret_key = apisecret
-        self.API_VERSION = '2021-01-05'
+        self.API_VERSION = api_version
     
     def __call__(self, request):
         timestamp = str(int(time.time()))
