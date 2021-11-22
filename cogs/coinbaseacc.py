@@ -16,6 +16,7 @@ import urllib.request
 from requests.utils import to_native_string
 import json, os, time, hmac, hashlib, base64
 from urllib.error import HTTPError
+# someone else's coinbase py fork
 class CoinbaseAccount:
     def __init__(self, CB_APIKey, CB_APISecret, database):
         self.cb = Client(CB_APIKey, CB_APISecret)
@@ -135,7 +136,7 @@ class CoinbasePriceAPI: # custom Wrapper since coinbase-py is outdated and poorl
         priceR = requests.get(url)
         price = priceR.json()
         return price['data']['amount']
-    
+        
 class cbWalletAuth(AuthBase):
     def __init__(self, apikey, apisecret, api_version=None):
         self.api_key = apikey

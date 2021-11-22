@@ -49,7 +49,7 @@ class firebaseStruct:
         users_ref = ref.child('crypto') # price over time = POT
         users_ref.set({
             'BTC': {
-                'DOB': '03.01.2009 | 13:15:05 GMT', # 3 jan 2009
+                'DOB': '03.01.2009 | 13:15:05 EDT', # 3 jan 2009
                 'POT': {
                     'TIMESTAMP': 'PRICE'
                 }
