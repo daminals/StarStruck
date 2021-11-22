@@ -1,7 +1,6 @@
 body {
   background-color: #FAFFF9 !important;
 }
-
 .sidenav {
   height: 110%;
   width: 160px;
@@ -20,29 +19,24 @@ body {
   color: #414141;
   display: block;
 }
-
 .sidenav input {
   height: 20px;
   padding: 0px 5px 0px 5px;
   font-size: 10px;
 }
-
 hr {
   border:0.5px solid #313131;
 }
-
 .main {
   margin-right: 160px; /* Same as the width of the sidenav */
   padding: 0px 10px;
   text-align: center;
   position: relative;
 }
-
 .starstruck {
   text-align:center;
   padding-right: 15%;
 }
-
 .top-right {
   position: absolute;
   top: 8px;
@@ -51,7 +45,6 @@ hr {
   padding-right:10px;
   padding-top: 5px
 }
-
 .logo {
   width: 6%;
   padding-bottom: 4px;
