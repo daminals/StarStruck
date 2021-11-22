@@ -20,7 +20,6 @@ def main():
         print(cb.balance()) # update balance
         os.remove("static/graph/Portfolio.png") # refresh graph
         pf.plotpf() # update graph
-        cb.coinToCoin("BTC","DOGE",0.1)
     ip_address = request.remote_addr
     print(ip_address)
     bal = str.splitlines(cb.balance())
