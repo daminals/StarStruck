@@ -17,7 +17,6 @@ class Portfolio:
         crypto = data.child('crypto') # and be able to write to them
         self.portfoliofb = portfoliofb
         self.crypto = crypto       
-
     
     def plotpf(self): # plot portfolio
         portfolio_get = self.portfoliofb.child("TOTAL").get()
