@@ -9,17 +9,18 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import matplotlib.dates as md
 import numpy as np
-import time
+import time, json
 
 class Portfolio:
     def __init__(self, data):
         portfoliofb = data.child('portfolio') # read firebase databases 
         crypto = data.child('crypto') # and be able to write to them
-        self.portfoliofb = portfoliofb 
-        self.crypto = crypto
+        self.portfoliofb = portfoliofb
+        self.crypto = crypto       
+
     
     def plotpf(self): # plot portfolio
-        portfolio_get = self.portfoliofb.get()
+        portfolio_get = self.portfoliofb.child("TOTAL").get()
         self.plot(portfolio_get,"Time","USD $", 'static/graph/Portfolio.png')
         
     def plotCoin(self, coin): # plot coin
