@@ -22,6 +22,10 @@ class Portfolio:
         portfolio_get = self.portfoliofb.child("TOTAL").get()
         self.plot(portfolio_get,"Time","USD $", 'static/graph/Portfolio.png')
         
+    def plotpfCoin(self, coin): # plot value of coin wallet
+        portfolioCoin_get = self.portfoliofb.child(coin).get()
+        self.plot(portfolioCoin_get,"Time","USD $", f'static/graph/Portfolio{coin}.png')
+        
     def plotCoin(self, coin): # plot coin
         POT = self.crypto.child(f'{coin}/POT').get() # price over time
         self.plot(POT, "Time", f"{coin} in $", f"static/graph/{coin}.png", True)

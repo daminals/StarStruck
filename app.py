@@ -20,6 +20,8 @@ def main():
         print(cb.balance()) # update balance
         os.remove("static/graph/Portfolio.png") # refresh graph
         pf.plotpf() # update graph
+        for coin in all_coin_wallets:
+            pf.plotpfCoin(coin)
     bal = str.splitlines(cb.balance())
     return render_template('main.html', bal=bal, imgsrc="static/graph/Portfolio.png")
 
