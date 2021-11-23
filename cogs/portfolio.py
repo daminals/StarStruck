@@ -24,10 +24,9 @@ class Portfolio:
         
     def plotCoin(self, coin): # plot coin
         POT = self.crypto.child(f'{coin}/POT').get() # price over time
-        self.plot(POT, "Time", f"{coin} in $", f"static/graph/{coin}.png")
+        self.plot(POT, "Time", f"{coin} in $", f"static/graph/{coin}.png", True)
         
-        
-    def plot(self, data, xlabel, ylabel, figname):
+    def plot(self, data, xlabel, ylabel, figname, coin_true=False):
         xAxis = [key for key, value in data.items()] # list comprehension;
         yAxis = [value for key, value in data.items()] # turn firebase into lists for matplotlib axes
         plt.grid(False) # not gridded
@@ -36,6 +35,8 @@ class Portfolio:
         plt.ylabel(ylabel)
         plt.xticks(rotation=90) # technically unecessary since i stopped displaying timestamps but rip lol
         ax = plt.gca()
+        if coin_true:
+            plt.gca().invert_yaxis()
         ax.axes.xaxis.set_ticks([]) # don't display bottom timestamps
         plt.tight_layout() # show off whole graphs no cutoffs 
         plt.savefig(figname, transparent=True) #png
