@@ -1,7 +1,6 @@
 body {
   background-color: #FAFFF9 !important;
-}
-.sidenav {
+}   .sidenav {
   height: 110%;
   width: 160px;
   position: absolute;
@@ -11,41 +10,34 @@ body {
   background-color: #DEDEDE;
   overflow-x: hidden;
   padding: 20px 8px 0px 16px;
-}
-.sidenav a {
+}   .sidenav a {
   padding-bottom: 6px;
   text-decoration: none;
   font-size: 10px;
   color: #414141;
   display: block;
-}
-.sidenav input {
+}   .sidenav input {
   height: 20px;
   padding: 0px 5px 0px 5px;
   font-size: 10px;
-}
-hr {
+}   hr {
   border:0.5px solid #313131;
-}
-.main {
+}   .main {
   margin-right: 160px; /* Same as the width of the sidenav */
   padding: 0px 10px;
   text-align: center;
   position: relative;
-}
-.starstruck {
+}   .starstruck {
   text-align:center;
   padding-right: 15%;
-}
-.top-right {
+}   .top-right {
   position: absolute;
   top: 8px;
   right: 16px;
   font-size: 10px;
   padding-right:10px;
   padding-top: 5px
-}
-.logo {
+}   .logo {
   width: 6%;
   padding-bottom: 4px;
 }
