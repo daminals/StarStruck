@@ -8,7 +8,7 @@ class AstrologyAlgorithm:
     def __init__(self, database):
         self.coin_data = database.child("crypto")
         
-    def __total_reset__(self):
+    def __total_reset__(self): # reset every birth chart
         for coin in self.coin_data.get():
             self.create_chart(coin)
     
@@ -20,7 +20,7 @@ class AstrologyAlgorithm:
     def create_chart(self, coin):
         coinDOB = self.readCoin(coin)
         # name year month day hour minute city(EDT)
-        coin = KrInstance(coin, coinDOB['year'], coinDOB['month'], coinDOB['day'], coinDOB['hour'], coinDOB['min'], coinDOB['timezone'], "United States")
+        coin = KrInstance(coin, coinDOB['year'], coinDOB['month'], coinDOB['day'], coinDOB['hour'], coinDOB['min'], coinDOB['timezone'], "US")
         coin.get_all()
         coinSVG = MakeSvgInstance(coin, Cdir='static/birthcharts')
         coinSVG.makeSVG()
