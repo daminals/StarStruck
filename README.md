@@ -1,6 +1,6 @@
 # StarStruck🚀
 
-> :warning: If StarStruck loses money it's because its a Scorpio ♏️
+> If StarStruck loses money it's because its a Scorpio ♏️
 
 A Crypto Wallet with an Astrology-Based Investment Algorithm 
 
