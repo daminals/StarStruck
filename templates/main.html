@@ -31,7 +31,6 @@
   <img id="graph" src={{ imgsrc }} width='100%'/> <!-- TODO: make a carousel of the portfolio value over time + all the wallets value over time lol -->
   <div class="top-right" id='title'> {{ imgsrc[13:-4] }} </div>
 </div>
-
 <div class="sidenav">
   {% for i in bal[:-1] %}
     <a href={{ "/" + i.lower() }}> {{ i }} </a>
