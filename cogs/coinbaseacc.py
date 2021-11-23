@@ -20,6 +20,7 @@ class CoinbaseAccount:
     def __init__(self, CB_APIKey, CB_APISecret, database):
         self.cb = Client(CB_APIKey, CB_APISecret)
         self.portfoliofb = database.child('portfolio')
+        self.portfolioTOTAL = self.portfoliofb.child("TOTAL")
         self.p_crypto = database.child('crypto')
         self.user = self.cb.get_current_user()
         self.accounts = self.cb.get_accounts()
@@ -32,16 +33,18 @@ class CoinbaseAccount:
     def balance(self): # add up entire wallet
         total = 0
         message = []
+        now = self.graph_now()
         for wallet in self.accounts.data:
             value = str(wallet['native_balance']).replace('USD','')
-            if float(value) != float(0):
+            if float(value) != float(0): # if the value is not 0
                 message.append(str(wallet['name']) + ': ' +   str(wallet['native_balance']).replace('USD ','$') ) # add wallet worth more than $0 to message list
+                coin = str(wallet["name"])[:-7] # "COIN wallet" except no "wallet"
+                if wallet['name'] != "Cash (USD)": # don't graph value of cash
+                    self.portfoliofb.child(coin).update({now: value})
                 total += float(value) # add wallets value to total
         total = round(total, 2) # round total to two decimal places
         message.append( 'Total Balance: ' + '$' + str(total) ) # add total to message list
-        now = self.graph_now()
-        print(now) # write timestamp
-        self.portfoliofb.update({now: total})
+        self.portfolioTOTAL.update({now: total})
         return('\n'.join(message))
     
     def all_coin_wallets(self):
