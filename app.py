@@ -3,7 +3,7 @@
 # Nov 14 2021
 
 # Flask Imports
-from flask import Flask, escape, request, render_template, session, redirect
+from flask import Flask, escape, request, render_template, session, redirect, send_file
 from flask import Flask
 # os
 import os
@@ -33,6 +33,14 @@ def coin_render(coin):
     else:
         bal = str.splitlines(cb.balance())        
         return render_template('main.html', bal=bal, imgsrc=f"static/graph/{coin}.png")
+
+@app.route('/<coin>/chart', methods=['GET'])
+def birthchart(coin):        
+    coin = coin.upper()
+    if coin not in all_coin_wallets:
+        return redirect("/404")
+    else:   
+        return send_file(f'static/birthcharts/{coin}NatalChart.svg')    
 
 @app.route('/coinPostRqs', methods=["GET", "POST"])
 def receive():
