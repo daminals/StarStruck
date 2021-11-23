@@ -3,7 +3,7 @@
 # Nov 13 2021
 from kerykeion import KrInstance
 from kerykeion.utilities.charts import MakeSvgInstance
-
+import fileinput
 class AstrologyAlgorithm:
     def __init__(self, database):
         self.coin_data = database.child("crypto")

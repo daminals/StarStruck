@@ -3,7 +3,7 @@
 # Nov 14 2021
 
 # Flask Imports
-from flask import Flask, escape, request, render_template, session, redirect, send_file
+from flask import Flask, escape, request, render_template, session, redirect, send_file, url_for
 from flask import Flask
 # os
 import os
@@ -40,7 +40,7 @@ def birthchart(coin):
     if coin not in all_coin_wallets:
         return redirect("/404")
     else:   
-        return send_file(f'static/birthcharts/{coin}NatalChart.svg')    
+        return f"<title> {coin} Chart </title><img style='height: 100%' src={url_for('static', filename=f'birthcharts/{coin}NatalChart.svg')}/>"
 
 @app.route('/coinPostRqs', methods=["GET", "POST"])
 def receive():
