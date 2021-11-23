@@ -43,6 +43,7 @@ function bannerColor(){
     echo
 }
 echo
-bannerColor "running webserver" "green" "*"
+bannerColor "StarStruck Init..." "yellow" "*"
+bannerColor "Starting Web Server" "green" "*"
 
 gunicorn app:app
