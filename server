@@ -44,6 +44,10 @@ function bannerColor(){
 }
 echo
 bannerColor "StarStruck Init..." "yellow" "*"
+
+source venv/bin/activate
+bannerColor "Venv Activated..." "blue" "*"
+
 bannerColor "Starting Web Server" "green" "*"
 
 gunicorn app:app

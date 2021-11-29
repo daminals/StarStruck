@@ -35,7 +35,8 @@ class AstrologyAlgorithm:
         coinInstance = self.create_coin_instance(coin)
         coinInstance.get_all()
         coinDOB = self.writeCoin(coin)
-        print(coin, coinInstance.sun)
+        coinInstance.json_dump(new_output_directory='static/birthcharts')
+        #print(coin, coinInstance.sun)
         
     def prediction(self, coin):
         pass
