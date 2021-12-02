@@ -1,0 +1,427 @@
+{
+    "city": "New York City",
+    "city_data": {
+        "countryCode": "US",
+        "countryName": "United States",
+        "fcl": "P",
+        "fcode": "PPL",
+        "geonameId": "5128581",
+        "lat": "40.71427",
+        "lng": "-74.00597",
+        "name": "New York",
+        "timezonestr": "America/New_York"
+    },
+    "city_lat": 40.71427,
+    "city_long": -74.00597,
+    "city_tz": "America/New_York",
+    "day": 3,
+    "eighth_house": {
+        "abs_pos": 258.48923469660457,
+        "element": "Fire",
+        "emoji": "\u2650\ufe0f",
+        "name": "8",
+        "position": 18.48923469660457,
+        "quality": "Mutable",
+        "sign": "Sag",
+        "sign_num": 8
+    },
+    "eleventh_house": {
+        "abs_pos": 327.42214387860366,
+        "element": "Air",
+        "emoji": "\u2652\ufe0f",
+        "name": "11",
+        "position": 27.422143878603663,
+        "quality": "Fixed",
+        "sign": "Aqu",
+        "sign_num": 10
+    },
+    "fifth_house": {
+        "abs_pos": 147.42214387860366,
+        "element": "Fire",
+        "emoji": "\u264c\ufe0f",
+        "name": "5",
+        "position": 27.422143878603663,
+        "quality": "Fixed",
+        "sign": "Leo",
+        "sign_num": 4
+    },
+    "first_house": {
+        "abs_pos": 52.21531877703635,
+        "element": "Earth",
+        "emoji": "\u2649\ufe0f",
+        "name": "1",
+        "position": 22.21531877703635,
+        "quality": "Fixed",
+        "sign": "Tau",
+        "sign_num": 1
+    },
+    "fourth_house": {
+        "abs_pos": 121.02273757157764,
+        "element": "Fire",
+        "emoji": "\u264c\ufe0f",
+        "name": "4",
+        "position": 1.0227375715776361,
+        "quality": "Fixed",
+        "sign": "Leo",
+        "sign_num": 4
+    },
+    "hours": 13,
+    "houses_degree_ut": {
+        "py/tuple": [
+            52.21531877703635,
+            78.48923469660456,
+            99.5772433689845,
+            121.02273757157764,
+            147.42214387860366,
+            184.70429803042236,
+            232.21531877703634,
+            258.48923469660457,
+            279.5772433689845,
+            301.02273757157764,
+            327.42214387860366,
+            4.704298030422363
+        ]
+    },
+    "houses_list": [
+        {
+            "py/id": 17
+        },
+        {
+            "py/id": 18
+        },
+        {
+            "py/id": 19
+        },
+        {
+            "py/id": 20
+        },
+        {
+            "py/id": 21
+        },
+        {
+            "py/id": 22
+        },
+        {
+            "py/id": 23
+        },
+        {
+            "py/id": 24
+        },
+        {
+            "py/id": 25
+        },
+        {
+            "py/id": 26
+        },
+        {
+            "py/id": 27
+        },
+        {
+            "py/id": 28
+        }
+    ],
+    "iflag": 258,
+    "julian_day": 2454835.2604166665,
+    "jupiter": {
+        "abs_pos": 299.5606060178289,
+        "element": "Earth",
+        "emoji": "\u2651\ufe0f",
+        "house": "9th House",
+        "name": "Jupiter",
+        "position": 29.56060601782889,
+        "quality": "Cardinal",
+        "retrograde": false,
+        "sign": "Cap",
+        "sign_num": 9
+    },
+    "lunar_phase": {
+        "degrees_between_s_m": 81.02915493745951,
+        "moon_emoji": "\ud83c\udf13",
+        "moon_phase": 7,
+        "sun_phase": 7
+    },
+    "mars": {
+        "abs_pos": 275.60021418088894,
+        "element": "Earth",
+        "emoji": "\u2651\ufe0f",
+        "house": "8th House",
+        "name": "Mars",
+        "position": 5.6002141808889405,
+        "quality": "Cardinal",
+        "retrograde": false,
+        "sign": "Cap",
+        "sign_num": 9
+    },
+    "mean_node": {
+        "abs_pos": 310.8165725711197,
+        "element": "Air",
+        "emoji": "\u2652\ufe0f",
+        "house": "10th House",
+        "name": "Mean_Node",
+        "position": 10.816572571119707,
+        "quality": "Fixed",
+        "retrograde": true,
+        "sign": "Aqu",
+        "sign_num": 10
+    },
+    "mercury": {
+        "abs_pos": 302.7933987443193,
+        "element": "Air",
+        "emoji": "\u2652\ufe0f",
+        "house": "10th House",
+        "name": "Mercury",
+        "position": 2.7933987443192905,
+        "quality": "Fixed",
+        "retrograde": false,
+        "sign": "Aqu",
+        "sign_num": 10
+    },
+    "minuts": 15,
+    "month": 1,
+    "moon": {
+        "abs_pos": 4.542526580853284,
+        "element": "Fire",
+        "emoji": "\u2648\ufe0f",
+        "house": "11th House",
+        "name": "Moon",
+        "position": 4.542526580853284,
+        "quality": "Cardinal",
+        "retrograde": false,
+        "sign": "Ari",
+        "sign_num": 0
+    },
+    "name": "BTC",
+    "nation": "US",
+    "neptune": {
+        "abs_pos": 322.5169453341843,
+        "element": "Air",
+        "emoji": "\u2652\ufe0f",
+        "house": "10th House",
+        "name": "Neptune",
+        "position": 22.5169453341843,
+        "quality": "Fixed",
+        "retrograde": false,
+        "sign": "Aqu",
+        "sign_num": 10
+    },
+    "ninth_house": {
+        "abs_pos": 279.5772433689845,
+        "element": "Earth",
+        "emoji": "\u2651\ufe0f",
+        "name": "9",
+        "position": 9.577243368984512,
+        "quality": "Cardinal",
+        "sign": "Cap",
+        "sign_num": 9
+    },
+    "planets_degrees": [
+        283.5133716433938,
+        4.542526580853284,
+        302.7933987443193,
+        330.2546391139455,
+        275.60021418088894,
+        299.5606060178289,
+        171.75857171961803,
+        349.31817731680303,
+        322.5169453341843,
+        271.35582578937516,
+        310.8165725711197,
+        309.52599872148147
+    ],
+    "planets_list": [
+        {
+            "py/id": 5
+        },
+        {
+            "py/id": 6
+        },
+        {
+            "py/id": 7
+        },
+        {
+            "py/id": 8
+        },
+        {
+            "py/id": 9
+        },
+        {
+            "py/id": 10
+        },
+        {
+            "py/id": 11
+        },
+        {
+            "py/id": 12
+        },
+        {
+            "py/id": 13
+        },
+        {
+            "py/id": 14
+        },
+        {
+            "py/id": 15
+        },
+        {
+            "py/id": 16
+        }
+    ],
+    "pluto": {
+        "abs_pos": 271.35582578937516,
+        "element": "Earth",
+        "emoji": "\u2651\ufe0f",
+        "house": "8th House",
+        "name": "Pluto",
+        "position": 1.3558257893751602,
+        "quality": "Cardinal",
+        "retrograde": false,
+        "sign": "Cap",
+        "sign_num": 9
+    },
+    "py/object": "kerykeion.main.KrInstance",
+    "saturn": {
+        "abs_pos": 171.75857171961803,
+        "element": "Earth",
+        "emoji": "\u264d\ufe0f",
+        "house": "5th House",
+        "name": "Saturn",
+        "position": 21.758571719618033,
+        "quality": "Mutable",
+        "retrograde": true,
+        "sign": "Vir",
+        "sign_num": 5
+    },
+    "second_house": {
+        "abs_pos": 78.48923469660456,
+        "element": "Air",
+        "emoji": "\u264a\ufe0f",
+        "name": "2",
+        "position": 18.489234696604555,
+        "quality": "Mutable",
+        "sign": "Gem",
+        "sign_num": 2
+    },
+    "seventh_house": {
+        "abs_pos": 232.21531877703634,
+        "element": "Water",
+        "emoji": "\u264f\ufe0f",
+        "name": "7",
+        "position": 22.215318777036344,
+        "quality": "Fixed",
+        "sign": "Sco",
+        "sign_num": 7
+    },
+    "sixth_house": {
+        "abs_pos": 184.70429803042236,
+        "element": "Air",
+        "emoji": "\u264e\ufe0f",
+        "name": "6",
+        "position": 4.704298030422365,
+        "quality": "Cardinal",
+        "sign": "Lib",
+        "sign_num": 6
+    },
+    "sun": {
+        "abs_pos": 283.5133716433938,
+        "element": "Earth",
+        "emoji": "\u2651\ufe0f",
+        "house": "9th House",
+        "name": "Sun",
+        "position": 13.513371643393782,
+        "quality": "Cardinal",
+        "retrograde": false,
+        "sign": "Cap",
+        "sign_num": 9
+    },
+    "tenth_house": {
+        "abs_pos": 301.02273757157764,
+        "element": "Air",
+        "emoji": "\u2652\ufe0f",
+        "name": "10",
+        "position": 1.0227375715776361,
+        "quality": "Fixed",
+        "sign": "Aqu",
+        "sign_num": 10
+    },
+    "third_house": {
+        "abs_pos": 99.5772433689845,
+        "element": "Water",
+        "emoji": "\u264b\ufe0f",
+        "name": "3",
+        "position": 9.577243368984497,
+        "quality": "Cardinal",
+        "sign": "Can",
+        "sign_num": 3
+    },
+    "time": 13.25,
+    "time_utc": 18.25,
+    "true_node": {
+        "abs_pos": 309.52599872148147,
+        "element": "Air",
+        "emoji": "\u2652\ufe0f",
+        "house": "10th House",
+        "name": "True_Node",
+        "position": 9.525998721481471,
+        "quality": "Fixed",
+        "retrograde": false,
+        "sign": "Aqu",
+        "sign_num": 10
+    },
+    "twelfth_house": {
+        "abs_pos": 4.704298030422363,
+        "element": "Fire",
+        "emoji": "\u2648\ufe0f",
+        "name": "12",
+        "position": 4.704298030422363,
+        "quality": "Cardinal",
+        "sign": "Ari",
+        "sign_num": 0
+    },
+    "uranus": {
+        "abs_pos": 349.31817731680303,
+        "element": "Water",
+        "emoji": "\u2653\ufe0f",
+        "house": "11th House",
+        "name": "Uranus",
+        "position": 19.31817731680303,
+        "quality": "Mutable",
+        "retrograde": false,
+        "sign": "Pis",
+        "sign_num": 11
+    },
+    "utc": {
+        "__reduce__": [
+            {
+                "py/type": "datetime.datetime"
+            },
+            [
+                "B9kBAxIPAAAAAA==",
+                {
+                    "py/reduce": [
+                        {
+                            "py/function": "pytz._UTC"
+                        },
+                        {
+                            "py/tuple": []
+                        }
+                    ]
+                }
+            ]
+        ],
+        "py/object": "datetime.datetime"
+    },
+    "venus": {
+        "abs_pos": 330.2546391139455,
+        "element": "Water",
+        "emoji": "\u2653\ufe0f",
+        "house": "11th House",
+        "name": "Venus",
+        "position": 0.2546391139454727,
+        "quality": "Mutable",
+        "retrograde": false,
+        "sign": "Pis",
+        "sign_num": 11
+    },
+    "year": 2009,
+    "zodiactype": "Tropic"
+}

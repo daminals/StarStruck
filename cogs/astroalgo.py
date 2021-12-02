@@ -28,14 +28,14 @@ class AstrologyAlgorithm:
     def create_chart(self, coin):
         coin = self.create_coin_instance(coin)
         coin.get_all()
-        coinSVG = MakeSvgInstance(coin, Cdir='static/birthcharts')
+        coinSVG = MakeSvgInstance(coin, Cdir=f'static/birthcharts')
         coinSVG.makeSVG()
     
     def starData(self, coin):
         coinInstance = self.create_coin_instance(coin)
         coinInstance.get_all()
         coinDOB = self.writeCoin(coin)
-        coinInstance.json_dump(new_output_directory='static/birthcharts')
+        coinInstance.json_dump(new_output_directory='static/json_data')
         #print(coin, coinInstance.sun)
         
     def prediction(self, coin):

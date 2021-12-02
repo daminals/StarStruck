@@ -61,9 +61,8 @@ def main():
     #cb.getUser("BTC")
     #cb.coinToCoin("BTC","DOGE",0.1)
     #cb.test_buy()
-    #astro.create_chart("ETH")
-    #astro.starData("ETH")
-    cb.reset_firebase()
+    astro.create_chart("ETH")
+    astro.starData("BTC")
 
 
 if __name__ == '__main__':
