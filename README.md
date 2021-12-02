@@ -15,13 +15,13 @@ A Crypto Wallet with an Astrology-Based Investment Algorithm
  **Layout of the Application** <br/>
 
 <img src="https://github.com/daminals/StarStruck/blob/master/static/markdownResources/layout.png" /> <br/>
-boring explanation boring explanation boring explanation
+The frontend displays user graphs, as well as access to the various coins owned by the user in non-zero wallets. The user has access to their total portfolio, and data on all the coins they own. All web pages are built via the same template, and fed in backend information through Flask.
 
 <br> **JQuery Integration** <br/>
-boring explanation boring explanation boring explanation
+JQuery seamlessly communicates with the Flask backend to effortlessly update the information server side on the firebase database, as well as client side via updating the user graph without reload
 
 <br> **Easily Expandable Routes**  <br/>
-boring explanation boring explanation boring explanation
+The application is structured such that it will update automatically for every coin the user buys. This is because none of the data that is liable to change is static or enumerated, and so the web pages and links are built through Flask's templating system.
 <br/>
 <br/>
 </details>
@@ -33,7 +33,7 @@ boring explanation boring explanation boring explanation
 boring explanation boring explanation boring explanation
 
 <br/>  **Custom Wrapper** <br/>
-boring explanation boring explanation boring explanation
+As many parts of Coinbase's python3 API wrapper did not work as intended, a custom wrapper built to access this data was built. It wraps GET and POST requests within the needed functionality.
 <br/>
 <br/>
 </details>
