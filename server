@@ -45,7 +45,16 @@ function bannerColor(){
 echo
 bannerColor "StarStruck Init..." "yellow" "*"
 
-source venv/bin/activate
+
+if (source python/venv/bin/activate) ; then
+		echo "venv installed 👍"
+else 
+		cd python
+		python -m venv venv 
+		source venv/bin/activate
+		pip install -r requirements.txt
+		cd ..
+fi
 bannerColor "Venv Activated..." "blue" "*"
 
 bannerColor "Starting Web Server" "green" "*"
