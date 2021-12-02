@@ -1,4 +1,4 @@
-![github repo badge: Language](https://img.shields.io/badge/Language-Python-181717?color=blue)  ![github repo badge: Built%20With](https://img.shields.io/badge/Built%20With-Visual%20Studio%20Code-181717?color=blue)  ![github repo badge: Using](https://img.shields.io/badge/Using-Coinbase-181717?color=blue)  ![github repo badge: Powered%20By](https://img.shields.io/badge/Powered%20By-Astrology♏️-181717?color=purple)
+![github repo badge: Language](https://img.shields.io/badge/Language-Python-181717?color=blue)  ![github repo badge: Built%20With](https://img.shields.io/badge/Built%20With-Visual%20Studio%20Code-181717?color=blue)  ![github repo badge: Using](https://img.shields.io/badge/Using-Coinbase-181717?color=blue)  ![github repo badge: Powered%20By](https://img.shields.io/badge/Powered%20By-Astrology-181717?color=purple)
 # StarStruck🚀
 
 > If StarStruck loses money it's because its a Scorpio ♏️
