@@ -46,16 +46,18 @@ echo
 bannerColor "StarStruck Init..." "yellow" "*"
 
 
-if (source python/venv/bin/activate) ; then
-		echo "venv installed 👍"
+if (source venv/bin/activate) ; then
+	source venv/bin/activate
+	bannerColor "Venv Activated..." "blue" "*"
+
 else 
-		cd python
-		python -m venv venv 
-		source venv/bin/activate
-		pip install -r requirements.txt
-		cd ..
+	cd python
+	python -m venv venv 
+	source venv/bin/activate
+	pip install -r requirements.txt
+	cd ..
+	bannerColor "Venv Activated..." "blue" "*"
 fi
-bannerColor "Venv Activated..." "blue" "*"
 
 bannerColor "Starting Web Server" "green" "*"
 

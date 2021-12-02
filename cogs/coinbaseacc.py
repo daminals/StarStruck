@@ -27,7 +27,7 @@ class CoinbaseAccount:
         self.priceAPI = CoinbasePriceAPI(CB_APIKey, CB_APISecret) # use custom API
     
     def graph_now(self):
-        now = dt.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+        now = dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         return now
     
     def balance(self): # add up entire wallet
