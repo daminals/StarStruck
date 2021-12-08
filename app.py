@@ -51,7 +51,9 @@ def receive():
         print(cb.balance())
         cb.current_price(coin)
         os.remove(f"static/graph/{coin}.png")
-        pf.plotCoin(coin)
+        pf.plotpf() # update graphs
+        for coin in all_coin_wallets:
+            pf.plotpfCoin(coin)
     return "reading get request⏳"
 
 @app.route('/cash') # not tracking USD to USD bc $1 will always = $1
