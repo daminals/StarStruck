@@ -54,7 +54,6 @@ def receive():
         os.remove(f"static/graph/{coin}.png")
         pf.plotpf() # update graph
         for coinz in all_coin_wallets:
-            print(coinz)
             pf.plotpfCoin(coinz)
             pf.plotCoin(coinz)
     return "reading get request⏳"
