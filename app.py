@@ -22,6 +22,7 @@ def main():
         pf.plotpf() # update graph
         for coin in all_coin_wallets:
             pf.plotpfCoin(coin)
+            pf.plotCoin(coin)
     bal = str.splitlines(cb.balance())
     return render_template('main.html', bal=bal, imgsrc="static/graph/Portfolio.png")
 
@@ -51,9 +52,10 @@ def receive():
         print(cb.balance())
         cb.current_price(coin)
         os.remove(f"static/graph/{coin}.png")
-        pf.plotpf() # update graphs
-        for coin in all_coin_wallets:
-            pf.plotpfCoin(coin)
+        pf.plotpf() # update graph
+        for coinz in all_coin_wallets:
+            pf.plotpfCoin(coinz)
+            pf.plotCoin(coinz)
     return "reading get request⏳"
 
 @app.route('/cash') # not tracking USD to USD bc $1 will always = $1
