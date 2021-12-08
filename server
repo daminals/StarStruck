@@ -61,4 +61,4 @@ fi
 
 bannerColor "Starting Web Server" "green" "*"
 
-gunicorn app:app
+gunicorn -b 0.0.0.0:8080 app:app
