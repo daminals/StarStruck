@@ -43,7 +43,7 @@ function bannerColor(){
     echo
 }
 echo
-bannerColor "StarStruck Init..." "yellow" "*"
+bannerColor "Cronjob Init..." "yellow" "*"
 
 
 if (source venv/bin/activate) ; then
@@ -58,6 +58,5 @@ else
 	bannerColor "Venv Activated..." "blue" "*"
 fi
 
-bannerColor "Starting Web Server" "green" "*"
-
-gunicorn -b 0.0.0.0:8080 app:app
+bannerColor "Running Cronjob" "green" "*"
+python3 cronjob.py
