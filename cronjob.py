@@ -18,7 +18,7 @@ def cronj():
 
 def log():
     with open("cronlog.txt", "a") as log_file:
-        log_file.write(f"Successfully updated database at {cb.graph_now()}")
+        log_file.write(f"Successfully updated database at {cb.graph_now()} \n")
 
 if __name__ == '__main__':
     cronj()
