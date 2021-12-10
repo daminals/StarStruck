@@ -11,9 +11,7 @@ all_coin_wallets = cb.all_coin_wallets()
 def cronj():
     print(cb.balance())
     pf.plotpf() # update graph
-    print("portfolio")
     for coin in all_coin_wallets:
-        print(coin)
         pf.plotpfCoin(coin)
         pf.plotCoin(coin)
 
