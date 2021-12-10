@@ -17,7 +17,7 @@ all_coin_wallets = cb.all_coin_wallets()
 @app.route('/', methods=["GET", "POST"])
 def main():
     if request.method == "POST":
-        print(cb.balance()) # update balance
+        print(cb.balance()) # UPDATES FIREBASE DATA
         os.remove("static/graph/Portfolio.png") # refresh graph
         pf.plotpf() # update graph
         for coin in all_coin_wallets:
