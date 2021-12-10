@@ -9,7 +9,7 @@ from wallet import *
 
 all_coin_wallets = cb.all_coin_wallets()
 def cronj():
-    pf.plotpf() # update graph
+    pf.plotpf() # update graph # TODO: figure out why this is not updating database or graph
     print("portfolio")
     for coin in all_coin_wallets:
         print(coin)
