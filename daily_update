@@ -45,7 +45,6 @@ function bannerColor(){
 echo
 bannerColor "Cronjob Init..." "yellow" "*"
 
-
 if (source venv/bin/activate) ; then
 	source venv/bin/activate
 	bannerColor "Venv Activated..." "blue" "*"
