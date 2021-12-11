@@ -64,7 +64,7 @@ def redirect_cash():
 
 @app.route('/404')
 def page_not_found():
-    return "error 404 page not found lol"
+    return f"<link rel='stylesheet' href=\"{ url_for('static', filename='css/style.css') }\"> error 404 page not found lol"
 
 if __name__ == '__main__':
     app.run(use_reloader=True,host='0.0.0.0')
