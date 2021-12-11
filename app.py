@@ -21,6 +21,7 @@ def main():
         os.remove("static/graph/Portfolio.png") # refresh graph
         pf.plotpf() # update graph
         for coin in all_coin_wallets:
+            cb.current_price(coin)
             pf.plotpfCoin(coin)
             pf.plotCoin(coin)
     bal = str.splitlines(cb.balance())
@@ -50,10 +51,10 @@ def receive():
     if request.method == "POST":
         coin = request.form['data']
         print(cb.balance())
-        cb.current_price(coin)
         os.remove(f"static/graph/{coin}.png")
         pf.plotpf() # update graph
         for coinz in all_coin_wallets:
+            cb.current_price(coinz)
             pf.plotpfCoin(coinz)
             pf.plotCoin(coinz)
     return "reading get request⏳"
