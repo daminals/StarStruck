@@ -2,18 +2,18 @@ body {
   background-color: #FAFFF9 !important;
 }   .sidenav {
   height: 110%;
-  width: 18%;
+  width: 20%;
   position: absolute;
+  font-size: 18px;
   z-index: 1;
   top: 0;
   right: 0;
   background-color: #DEDEDE;
   overflow-x: hidden;
-  padding: 2% 8px 0px 16px;
+  padding: 2.5% 8px 0px 16px;
 }   .sidenav a {
   padding-bottom: 6px;
   text-decoration: none;
-  font-size: 16px;
   color: #414141;
   display: block;
 }   .sidenav input {
@@ -22,7 +22,7 @@ body {
 }   hr {
   border:0.5px solid #313131;
 }   .main {
-  margin-right: 17%; /* Same as the width of the sidenav */
+  margin-right: 20%; /* Same as the width of the sidenav */
   padding: 0px 10px;
   text-align: center;
   position: relative;
