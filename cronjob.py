@@ -12,6 +12,7 @@ def cronj():
     print(cb.balance())
     pf.plotpf() # update graph
     for coin in all_coin_wallets:
+        cb.current_price(coin)
         pf.plotpfCoin(coin)
         pf.plotCoin(coin)
 
