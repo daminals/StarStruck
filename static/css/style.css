@@ -1,5 +1,5 @@
 body {
-  background-color: #FAFFF9 !important;
+  background-color: rgb(250, 255, 249) !important;
 }   .sidenav {
   height: 110%;
   width: 20%;
@@ -10,12 +10,13 @@ body {
   right: 0;
   background-color: #DEDEDE;
   overflow-x: hidden;
-  padding: 2.5% 8px 0px 16px;
+  padding: 2.5% 8px 0px 0px;
 }   .sidenav a {
   padding-bottom: 6px;
   text-decoration: none;
   color: #414141;
   display: block;
+  padding-left: 16px;
 }   .sidenav input {
   padding: 2px 8px 2px 8px;
   font-size: 15px;
@@ -46,10 +47,14 @@ body {
     height: 20%;
     width: 100%;
     position: relative;
-    margin: 0;
     top: 85%;
-    padding: 2.5% 8px 0px 16px;
-  }   .main {
+    padding: 2.5% 8px 0px 0px;
+  }.sidenav a:hover{
+    background-color: #909090;
+    color: #313131;
+    border-radius: 3%;
+    width:110%;
+  } .main {
     padding: 0px;
     width: 100%;
     text-align: center;
