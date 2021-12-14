@@ -23,4 +23,3 @@ def log(): #TODO: host server, point to files instead of using system so no exce
 if __name__ == '__main__':
     cronj()
     log()
-    print("Hello remote repo")
