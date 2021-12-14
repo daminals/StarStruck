@@ -41,4 +41,22 @@ body {
 }   .logo {
   width: 6%;
   padding-bottom: 4px;
+} @media only screen and (max-width: 800px) {
+  .sidenav {
+    height: 20%;
+    width: 100%;
+    position: relative;
+    margin: 0;
+    top: 85%;
+    padding: 2.5% 8px 0px 16px;
+  }   .main {
+    padding: 0px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    top: -23px;
+  }   .starstruck {
+    text-align:center;
+    padding-left: 27%;
+  }
 }
