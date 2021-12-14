@@ -32,20 +32,24 @@ class CoinbaseAccount:
     
     def balance(self): # add up entire wallet
         total = 0
-        message = []
+        message = {}
         now = self.graph_now()
         for wallet in self.accounts.data:
             value = str(wallet['native_balance']).replace('USD','')
             if float(value) != float(0): # if the value is not 0
                 if wallet['name'] != "Cash (USD)": # don't graph value of cash
-                    message.append(str(wallet['name']) + ': ' +   str(wallet['native_balance']).replace('USD ','$') ) # add wallet worth more than $0 to message list
+                    message[float(value)] = (str(wallet['name']) + ': ' +   str(wallet['native_balance']).replace('USD ','$') ) # add wallet worth more than $0 to message list
                     coin = str(wallet["name"])[:-7] # "COIN wallet" except no "wallet"
                     self.portfoliofb.child(coin).update({now: float(value)})
                 total += float(value) # add wallets value to total
         total = round(total, 2) # round total to two decimal places
-        message.append( 'Total Balance: ' + '$' + str(total) ) # add total to message list
+        sorted_message = sorted(message) # we want to sort the keys
+        new_message = []
+        for i in sorted_message[::-1]:
+            new_message.append(message[i]) # create a new final message, from biggest value wallet to smallest
+        new_message.append( 'Total Balance: ' + '$' + str(total) ) # add total to message list
         self.portfolioTOTAL.update({now: total})
-        return('\n'.join(message))
+        return('\n'.join(new_message))
     
     def all_coin_wallets(self):
         all_wallets = []
