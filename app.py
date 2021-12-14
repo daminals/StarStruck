@@ -62,10 +62,6 @@ def receive():
             pf.plotCoin(coinz)
     return "reading get request⏳"
 
-@app.route('/cash') # not tracking USD to USD bc $1 will always = $1
-def redirect_cash():
-    return redirect("/")
-
 @app.route('/404')
 def page_not_found():
     return f"<link rel='stylesheet' href=\"{ url_for('static', filename='css/style.css') }\"> error 404 page not found lol"
