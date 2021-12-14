@@ -59,10 +59,10 @@ def main():
     #cb.sell("BTC",0.25) # fee was 99 cents bruh
     #cb.buy("DOGE", 0.25)
     #cb.getUser("BTC")
-    #cb.coinToCoin("BTC","DOGE",0.1)
-    #cb.test_buy()
-    astro.create_chart("ETH")
-    astro.starData("BTC")
+    cb.coinToCoin("DOGE","BTC",0.15)
+    cb.test_buy()
+    #astro.create_chart("ETH")
+    #astro.starData("BTC")
 
 
 if __name__ == '__main__':
