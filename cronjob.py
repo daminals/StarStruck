@@ -16,7 +16,7 @@ def cronj():
         pf.plotpfCoin(coin)
         pf.plotCoin(coin)
 
-def log():
+def log(): #TODO: host server, point to files instead of using system so no excessive rewrites of images
     with open("cronlog.txt", "a") as log_file:
         log_file.write(f"Successfully updated database at {cb.graph_now()} \n")
 
