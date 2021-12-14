@@ -20,6 +20,7 @@ body {
 }   .sidenav input {
   padding: 2px 8px 2px 8px;
   font-size: 15px;
+  margin-left: 16px;
 }   hr {
   border:0.5px solid #313131;
 }   .main {

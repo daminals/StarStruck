@@ -37,9 +37,9 @@ class CoinbaseAccount:
         for wallet in self.accounts.data:
             value = str(wallet['native_balance']).replace('USD','')
             if float(value) != float(0): # if the value is not 0
-                message.append(str(wallet['name']) + ': ' +   str(wallet['native_balance']).replace('USD ','$') ) # add wallet worth more than $0 to message list
-                coin = str(wallet["name"])[:-7] # "COIN wallet" except no "wallet"
                 if wallet['name'] != "Cash (USD)": # don't graph value of cash
+                    message.append(str(wallet['name']) + ': ' +   str(wallet['native_balance']).replace('USD ','$') ) # add wallet worth more than $0 to message list
+                    coin = str(wallet["name"])[:-7] # "COIN wallet" except no "wallet"
                     self.portfoliofb.child(coin).update({now: float(value)})
                 total += float(value) # add wallets value to total
         total = round(total, 2) # round total to two decimal places

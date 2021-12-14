@@ -33,15 +33,14 @@
 </div>
 <div class="sidenav">
   {% for i in bal[:-1] %}
-    <a href={{ "/" + i.lower() }}> {{ i }} </a>
+      <a href={{ "/" + i.lower() }}> {{ i }} </a>
   {% endfor %}
   <hr/>
   <a href="/"> {{ bal[-1] }} </a>
   <hr/>
-  <!--- auto updates now lol
   <form method="post" id="update">
     <input class="btn btn-success" type="submit" value="UPDATE"/>
-  </form> -->
+  </form> 
 </div>
 </body>
 </html>
