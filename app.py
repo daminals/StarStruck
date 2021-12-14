@@ -35,7 +35,10 @@ def coin_render(coin):
     if coin not in all_coin_wallets:
         return redirect("/404")
     else:
-        bal = str.splitlines(cb.balance())        
+        bal = str.splitlines(cb.balance())     
+        if not (os.path.exists(f'static/graph/{coin}.png')):
+            pf.plotpfCoin(coin)
+            pf.plotCoin(coin)
         return render_template('main.html', bal=bal, imgsrc=f"static/graph/{coin}.png")
 
 @app.route('/<coin>/chart', methods=['GET'])
