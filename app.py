@@ -13,16 +13,20 @@ from wallet import *
 app = Flask(__name__)
 app.secret_key = SERVERKEY
 
+def plot_all_coins():
+    pf.plotpf() # update graph
+    for coin in cb.all_coin_wallets():
+        cb.current_price(coin)
+        pf.plotpfCoin(coin)
+        pf.plotCoin(coin)
+
+
 @app.route('/', methods=["GET", "POST"])
 def main():
     if request.method == "POST":
         print(cb.balance()) # UPDATES FIREBASE DATA
         os.remove("static/graph/Portfolio.png") # refresh graph
-        pf.plotpf() # update graph
-        for coin in cb.all_coin_wallets():
-            cb.current_price(coin)
-            pf.plotpfCoin(coin)
-            pf.plotCoin(coin)
+        plot_all_coins()
     bal = str.splitlines(cb.balance())
     return render_template('main.html', bal=bal, imgsrc="static/graph/Portfolio.png")
 
@@ -47,6 +51,8 @@ def birthchart(coin):
     if coin not in cb.all_coin_wallets():
         return redirect("/404")
     else:   
+        if not os.path.exists(f'static/birthcharts/{coin}NatalChart.svg'):
+            astro.create_chart(coin)
         return f"<title> {coin} Chart </title><img style='height: 100%' src={url_for('static', filename=f'birthcharts/{coin}NatalChart.svg')}/>"
 
 @app.route('/coinPostRqs', methods=["GET", "POST"])
@@ -55,12 +61,8 @@ def receive():
         coin = request.form['data']
         print(cb.balance())
         os.remove(f"static/graph/{coin}.png")
-        pf.plotpf() # update graph
-        for coinz in cb.all_coin_wallets():
-            cb.current_price(coinz)
-            pf.plotpfCoin(coinz)
-            pf.plotCoin(coinz)
-    return "reading get request⏳"
+        plot_all_coins()
+        return "reading get request⏳"
 
 @app.route('/404')
 def page_not_found():

@@ -14,22 +14,20 @@ class AstrologyAlgorithm:
     
     def coin_init(self, coin):
         try:
-            if self.readCoin(coin) != None:
+            if self.coin_data.get()[coin]["DOB"] != None:
                 print("cannot init already initiated coin")
             return
         except KeyError:
             print("non init coin")
         data_struct = {
-            "year": "None",
-            "month": "None",
-            "day": "None",
-            "hour": "None",
-            "minute": "None",
-            "timezone": "None",
-            "country": "None"
+            "year": 2017,
+            "month": 9,
+            "day": 28,
+            "hour": 11,
+            "min": 44,
+            "timezone": "Zug",
+            "country": "CH"
         }
-        print(data_struct)
-        print(self.coin_data.child(coin).get())
         self.coin_data.child(coin).update({"DOB": data_struct})
         
             
@@ -40,8 +38,13 @@ class AstrologyAlgorithm:
         return coin
 
     def readCoin(self, coin):
-        coin_DOB = self.coin_data.get()[coin]["DOB"]
-        return coin_DOB 
+        try:
+            coin_DOB = self.coin_data.get()[coin]["DOB"]
+            return coin_DOB
+        except KeyError:
+            self.coin_init(coin)
+            raise KeyError
+         
     
     def writeCoin(self,coin):
         return self.coin_data.child(coin).child("DOB")
