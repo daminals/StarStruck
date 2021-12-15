@@ -211,11 +211,12 @@ class cbWalletAuth(AuthBase):
             message = message.encode()
         if not isinstance(secret, bytes):
             secret = secret.encode()
-
+ 
         signature = hmac.new(secret, message, hashlib.sha256).hexdigest() 
         request.headers.update({
             to_native_string('CB-VERSION') : '2021-11-11',
             to_native_string('CB-ACCESS-SIGN'): signature,
+            to_native_string('ACCESS_SIGNATURE'): signature,
             to_native_string('CB-ACCESS-TIMESTAMP'): timestamp,
             to_native_string('CB-ACCESS-KEY'): self.api_key,
             # application/json

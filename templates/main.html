@@ -33,7 +33,7 @@
 </div>
 <div class="sidenav">
   {% for i in bal[:-1] %}
-      <a href={{ "/" + i.lower() }}> {{ i }} </a>
+      <a href={{ "/" + i.lower()[:-13] }}> {{ i }} </a>
   {% endfor %}
   <hr/>
   <a href="/"> {{ bal[-1] }} </a>

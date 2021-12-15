@@ -11,11 +11,31 @@ class AstrologyAlgorithm:
     def __total_reset__(self): # reset every birth chart
         for coin in self.coin_data.get():
             self.create_chart(coin)
+    
+    def coin_init(self, coin):
+        try:
+            if self.readCoin(coin) != None:
+                print("cannot init already initiated coin")
+            return
+        except KeyError:
+            print("non init coin")
+        data_struct = {
+            "DOB": {
+            "year": None,
+            "month": None,
+            "day": None,
+            "hour": None,
+            "minute": None,
+            "timezone": None,
+            "country": None
+        }}
+        self.writeCoin(coin).update(data_struct)
+        
             
     def create_coin_instance(self, coin):
         coinDOB = self.readCoin(coin)
         # name year month day hour minute city(EDT)
-        coin = KrInstance(coin, coinDOB['year'], coinDOB['month'], coinDOB['day'], coinDOB['hour'], coinDOB['min'], coinDOB['timezone'], "US")
+        coin = KrInstance(coin, coinDOB['year'], coinDOB['month'], coinDOB['day'], coinDOB['hour'], coinDOB['min'], coinDOB['timezone'], coinDOB['country'])
         return coin
 
     def readCoin(self, coin):
@@ -28,7 +48,7 @@ class AstrologyAlgorithm:
     def create_chart(self, coin):
         coin = self.create_coin_instance(coin)
         coin.get_all()
-        coinSVG = MakeSvgInstance(coin, Cdir=f'static/birthcharts')
+        coinSVG = MakeSvgInstance(coin, new_output_directory=f'static/birthcharts')
         coinSVG.makeSVG()
     
     def starData(self, coin):
