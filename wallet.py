@@ -61,7 +61,7 @@ def main():
     #cb.getUser("BTC")
     #cb.coinToCoin("DOGE","BTC",0.15)
     #cb.test_buy()
-    astro.create_chart("DOT")
+    astro.create_chart("SOL")
     #astro.starData("DOT")
     #astro.coin_init("DOT")
 

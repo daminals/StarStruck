@@ -20,13 +20,14 @@ class AstrologyAlgorithm:
         except KeyError:
             print("non init coin")
         data_struct = {
-            "year": 2017,
-            "month": 9,
-            "day": 28,
-            "hour": 11,
-            "min": 44,
-            "timezone": "Zug",
-            "country": "CH"
+            "year": 2020,
+            "month": 3,
+            "day": 16,
+            "hour": 6,
+            "min": 29,
+            "second": 00,
+            "timezone": "San Diego",
+            "country": "US"
         }
         self.coin_data.child(coin).update({"DOB": data_struct})
         
