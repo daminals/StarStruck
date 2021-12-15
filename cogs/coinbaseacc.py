@@ -23,7 +23,6 @@ class CoinbaseAccount:
         self.portfolioTOTAL = self.portfoliofb.child("TOTAL")
         self.p_crypto = database.child('crypto')
         self.user = self.cb.get_current_user()
-        self.accounts = self.cb.get_accounts()
         self.priceAPI = CoinbasePriceAPI(CB_APIKey, CB_APISecret) # use custom API
     
     def graph_now(self):
@@ -34,7 +33,7 @@ class CoinbaseAccount:
         total = 0
         message = {}
         now = self.graph_now()
-        for wallet in self.accounts.data:
+        for wallet in self.cb.get_accounts().data:
             value = str(wallet['native_balance']).replace('USD','')
             if float(value) != float(0): # if the value is not 0
                 if wallet['name'] != "Cash (USD)": # don't graph value of cash
@@ -53,7 +52,7 @@ class CoinbaseAccount:
     
     def all_coin_wallets(self):
         all_wallets = []
-        for wallet in self.accounts.data:
+        for wallet in self.cb.get_accounts().data:
             value = str(wallet['native_balance']).replace('USD','')
             if float(value) != float(0):
                 if wallet['name'] != "Cash (USD)":
@@ -109,7 +108,7 @@ class CoinbaseAccount:
         self.priceAPI.buyCoin(acc.id, payment_method)
 
     def get_coin_account(self, coin): # coinbase API does not read the currency field for buy accounts
-        accounts = self.accounts.data 
+        accounts = self.cb.get_accounts().data 
         for wallet in accounts:
             if coin == wallet['balance']['currency']:
                 return wallet

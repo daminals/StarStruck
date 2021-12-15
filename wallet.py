@@ -63,7 +63,7 @@ def main():
     #cb.test_buy()
     #astro.create_chart("ETH")
     #astro.starData("BTC")
-    astro.coin_init("DOT")
+    astro.coin_init("SHIB")
 
 
 if __name__ == '__main__':

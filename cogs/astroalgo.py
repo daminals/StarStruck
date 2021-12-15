@@ -20,16 +20,17 @@ class AstrologyAlgorithm:
         except KeyError:
             print("non init coin")
         data_struct = {
-            "DOB": {
-            "year": None,
-            "month": None,
-            "day": None,
-            "hour": None,
-            "minute": None,
-            "timezone": None,
-            "country": None
-        }}
-        self.writeCoin(coin).update(data_struct)
+            "year": "None",
+            "month": "None",
+            "day": "None",
+            "hour": "None",
+            "minute": "None",
+            "timezone": "None",
+            "country": "None"
+        }
+        print(data_struct)
+        print(self.coin_data.child(coin).get())
+        self.coin_data.child(coin).update({"DOB": data_struct})
         
             
     def create_coin_instance(self, coin):
