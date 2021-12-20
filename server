@@ -45,13 +45,11 @@ function bannerColor(){
 echo
 bannerColor "StarStruck Init..." "yellow" "*"
 
-
 if (source venv/bin/activate) ; then
 	source venv/bin/activate
 	bannerColor "Venv Activated..." "blue" "*"
-
 else 
-	python -m venv venv 
+	python3 -m venv venv 
 	source venv/bin/activate
 	pip install -r requirements.txt
 	cd ..

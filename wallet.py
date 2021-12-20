@@ -16,14 +16,11 @@ from coinbase.wallet.error import AuthenticationError
 #firebase
 from firebase import firebase
 import firebase_admin
-from firebase_admin import credentials
-from firebase_admin import db
+from firebase_admin import credentials, db
 #classes
 from cogs.portfolio import Portfolio
 from cogs.coinbaseacc import CoinbaseAccount
 from cogs.astroalgo import AstrologyAlgorithm
-
-cred = credentials.Certificate("ssfbkey.json") #firebase key
 
 load_dotenv()
 # crypto
@@ -35,6 +32,7 @@ FIREBASE_NAME = os.environ.get('FIREBASE_NAME', 3)
 # flask secret key
 SERVERKEY = os.environ.get('SERVERKEY', 3)
 
+cred = credentials.Certificate("ssfbkey.json") #firebase key
 # Initialize the app with a service account, granting admin privileges
 firebase_admin.initialize_app(cred, {
     'databaseURL': FIREBASE
@@ -63,7 +61,7 @@ def main():
     #cb.test_buy()
     astro.create_chart("SOL")
     #astro.starData("DOT")
-    #astro.coin_init("DOT")
+    #astro.coin_init("SOL")
 
 
 if __name__ == '__main__':

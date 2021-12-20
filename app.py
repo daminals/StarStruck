@@ -20,7 +20,6 @@ def plot_all_coins():
         pf.plotpfCoin(coin)
         pf.plotCoin(coin)
 
-
 @app.route('/', methods=["GET", "POST"])
 def main():
     if request.method == "POST":
@@ -53,7 +52,7 @@ def birthchart(coin):
     else:   
         if not os.path.exists(f'static/birthcharts/{coin}NatalChart.svg'):
             astro.create_chart(coin)
-        return f"<title> {coin} Chart </title><img style='height: 100%' src={url_for('static', filename=f'birthcharts/{coin}NatalChart.svg')}/>"
+        return f"<title> {coin} Chart </title><img style='height: 100%' src={url_for('static', filename=f'birthcharts/{coin}NatalChart.svg')}/> <link rel='stylesheet' href=\"{ url_for('static', filename='css/style.css') }\"> "
 
 @app.route('/coinPostRqs', methods=["GET", "POST"])
 def receive():

@@ -1,0 +1,8 @@
+.env
+ssfbkey.json
+__pycache__
+addstufffirebase.py
+return.json
+buyreturn.json
+cronlog.txt
+cogs/private
