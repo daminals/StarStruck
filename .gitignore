@@ -6,3 +6,4 @@ return.json
 buyreturn.json
 cronlog.txt
 cogs/private
+venv
