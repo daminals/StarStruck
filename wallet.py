@@ -14,7 +14,6 @@ import time
 from coinbase.wallet.client import Client
 from coinbase.wallet.error import AuthenticationError
 #firebase
-from firebase import firebase
 import firebase_admin
 from firebase_admin import credentials, db
 #classes
